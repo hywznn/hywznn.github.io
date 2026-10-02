@@ -3,9 +3,14 @@ export const profile = {
   role: "AI Service / Agent Developer",
   email: "choi.hyunjun@outlook.com",
   github: "https://github.com/hywznn",
-  headline: ["끊긴 업무를 연결해,", "완료까지 가는", "AI 서비스를 만듭니다."],
+  headline: ["AI를 서비스로 연결하는", "개발자 최현준입니다."],
   description:
-    "중복된 Intent 판단은 한 번으로, 끊긴 OCR 이후 업무는 다시 실행되도록. AI의 결과를 검증·승인·증빙이 있는 Backend 흐름으로 연결합니다.",
+    "검색에서 빠진 근거와 화면·서버 사이에서 멈춘 요청을 찾아 고쳐 왔습니다. 모델·API·사용자 화면을 연결하고, 구현한 결과를 검증하는 개발자입니다.",
+  background: [
+    { label: "전공", title: "광운대학교 정보융합학", detail: "학사 졸업" },
+    { label: "교육", title: "KT AIVLE School 9기", detail: "AI Track 수료" },
+    { label: "경험", title: "TPM · Frontend · AI·Backend 통합", detail: "요구사항 정리부터 구현·통합 검증까지" },
+  ],
 };
 
 export const projects = [

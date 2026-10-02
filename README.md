@@ -19,10 +19,10 @@ npm run preview
 
 ## 수정 위치
 
-- `src/data.mjs`: 프로젝트, 기간, 역할, 성과, 경력, 기술 데이터
+- `src/data.mjs`: 첫 화면 자기소개, 프로젝트, 기간, 역할, 성과, 경력, 기술 데이터
 - `src/summary-data.mjs`: 프로젝트 목록의 짧은 문제·해결·대표 결과
 - `src/project-details.mjs`: 프로젝트별 개인 기여·아키텍처·기술 선택 이유·추가 검증
-- `src/components/Hero.jsx`: 첫 화면의 메시지와 업무 흐름
+- `src/components/Hero.jsx`: 이름·개발자 정체성과 전공·교육·경험 소개
 - `src/components/Projects.jsx`: 서비스 이미지/흐름 카드와 상세 링크
 - `src/components/ProjectDialog.jsx`: 키보드·뒤로 가기·프로젝트 이동을 지원하는 상세 창
 - `src/components/Background.jsx`: 경력·기술·연락
