@@ -1,45 +1,7 @@
-import React, { useEffect, useState } from "react";
-import BlurText from "./reactbits/BlurText.jsx";
-import CountUp from "./reactbits/CountUp.jsx";
-export function useMotionAllowed() {
-  const [allowed, setAllowed] = useState(false);
-  useEffect(() => {
-    const query = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const update = () => setAllowed(!query.matches);
-    update();
-    query.addEventListener("change", update);
-    return () => query.removeEventListener("change", update);
-  }, []);
-  return allowed;
-}
-export function RevealLine({ children, className = "", delay = 0 }) {
-  const animate = useMotionAllowed();
-  return animate ? (
-    <BlurText
-      as="span"
-      className={className}
-      text={children}
-      delay={60}
-      stepDuration={0.23}
-      direction="bottom"
-      animationFrom={{ filter: "blur(4px)", opacity: 0.2, y: 12 }}
-      animationTo={[{ filter: "blur(0px)", opacity: 1, y: 0 }]}
-    />
-  ) : (
-    <span className={className}>{children}</span>
-  );
-}
+import React from "react";
+
 export function NumberValue({ value }) {
-  const animate = useMotionAllowed();
-  if (!/^\d+$/.test(value) || !animate) return <>{value}</>;
-  return (
-    <>
-      <span className="sr-only">{value}</span>
-      <span aria-hidden="true">
-        <CountUp to={Number(value)} duration={0.7} />
-      </span>
-    </>
-  );
+  return <>{value}</>;
 }
 export function Arrow({ diagonal = false }) {
   return <span aria-hidden="true">{diagonal ? "↗" : "→"}</span>;

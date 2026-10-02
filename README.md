@@ -20,6 +20,7 @@ npm run preview
 ## 수정 위치
 
 - `src/data.mjs`: 프로젝트, 기간, 역할, 성과, 경력, 기술 데이터
+- `src/summary-data.mjs`: 프로젝트 목록의 짧은 문제·해결·대표 결과
 - `src/case-data.mjs`: FOWOCO 개인 기여와 문제 해결 사례
 - `src/components/Hero.jsx`: 첫 화면의 메시지와 업무 흐름
 - `src/components/Projects.jsx`: 네 프로젝트와 이미지 확대
@@ -37,9 +38,9 @@ npm run preview
 
 ## React Bits
 
-공식 [React Bits](https://reactbits.dev/)의 **BlurText · SpotlightCard · CountUp**을 사용했습니다. 출처와 수정 내용은 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md), 전체 라이선스는 [licenses/REACT-BITS-LICENSE.md](licenses/REACT-BITS-LICENSE.md)에 보존했습니다.
+공식 [React Bits](https://reactbits.dev/)의 **SpotlightCard**을 사용했습니다. 출처와 수정 내용은 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md), 전체 라이선스는 [licenses/REACT-BITS-LICENSE.md](licenses/REACT-BITS-LICENSE.md)에 보존했습니다.
 
-`prefers-reduced-motion`에서는 제목과 숫자를 정적으로 표시합니다. 수치의 접근성용 최종값은 항상 유지하며, 비율·퍼센트 성과는 애니메이션으로 변형하지 않습니다.
+제목과 모든 숫자는 처음부터 정적으로 표시합니다. 숫자 카운트업을 사용하지 않으며, hover 강조에만 SpotlightCard를 사용합니다. 프로젝트 목록은 핵심 결과를 먼저 보여주고, 구현·검증 상세는 사용자가 펼쳐 읽을 수 있습니다.
 
 ## 성과의 범위
 

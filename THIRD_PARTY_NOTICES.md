@@ -11,7 +11,5 @@
 Included JS-CSS components:
 
 - `src/content/Components/SpotlightCard/SpotlightCard.jsx` and `.css`
-- `src/content/TextAnimations/BlurText/BlurText.jsx`
-- `src/content/TextAnimations/CountUp/CountUp.jsx`
 
-Local adaptations: BlurText accepts an `as` element prop for semantic heading composition. CountUp includes its final value in server-rendered HTML. Site-level wrappers honor reduced motion and preserve accessible final metric values; site styles adapt appearance. Components remain part of this portfolio application, not a standalone component library.
+Local adaptations: site styles adapt SpotlightCard appearance. Hero text and all metrics are static, with no count-up or text reveal. The component remains part of this portfolio application, not a standalone component library.

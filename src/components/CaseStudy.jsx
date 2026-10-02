@@ -1,17 +1,37 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { workflow } from "../data.mjs";
 import { contributionGroups, solving } from "../case-data.mjs";
-import { SectionHeading, External, Arrow } from "./UI.jsx";
+import { External, Arrow } from "./UI.jsx";
 export default function CaseStudy() {
+  const disclosure = useRef(null);
+  useEffect(() => {
+    const revealCase = (hash) => {
+      if (hash === "#fowoco-case" || hash.startsWith("#case-")) {
+        disclosure.current.open = true;
+        requestAnimationFrame(() => document.getElementById(hash.slice(1))?.scrollIntoView({ block: "start" }));
+      }
+    };
+    const openFromLink = () => revealCase(window.location.hash);
+    const openFromClick = (event) => {
+      const link = event.target.closest?.("a[href^='#']");
+      if (link) revealCase(link.hash);
+    };
+    openFromLink();
+    window.addEventListener("hashchange", openFromLink);
+    document.addEventListener("click", openFromClick);
+    return () => {
+      window.removeEventListener("hashchange", openFromLink);
+      document.removeEventListener("click", openFromClick);
+    };
+  }, []);
   return (
     <section id="fowoco-case" className="section case-section">
       <div className="container">
-        <SectionHeading
-          number="03"
-          eyebrow="FOWOCO / Case study"
-          title="서류는 처리됐는데, 왜 업무는 멈춰 있었을까?"
-          description="TPM · Backend Integration 담당으로 현업 요구사항을 정리하고, Server–AI 계약과 업무 상태를 연결했습니다."
-        />
+        <details className="case-disclosure" ref={disclosure}>
+          <summary>
+            <div><p className="section-kicker">02 / FOWOCO CASE STUDY</p><h2>중복 판단과 업무 단절을 고친 과정</h2><p>현업 조사 · 중복 판단 제거 · OCR 이후 업무 재개 · E2E 검증</p></div>
+            <span className="disclosure-label"><span className="when-closed">상세 펼치기</span><span className="when-open">상세 접기</span><b aria-hidden="true">+</b></span>
+          </summary>
         <div className="case-layout">
           <aside className="case-index">
             <span>PROBLEM TO RESULT</span>
@@ -179,6 +199,7 @@ export default function CaseStudy() {
             </article>
           </div>
         </div>
+        </details>
       </div>
     </section>
   );
