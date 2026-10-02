@@ -1,53 +1,50 @@
-# 최현준 · 개발 포트폴리오
+# 최현준 · AI Service / Agent Developer
 
-AI Service / Agent Developer 개인 포트폴리오입니다.
+**[포트폴리오 열기](https://hywznn.github.io/)**
 
-**사이트: https://hywznn.github.io/**
+FOWOCO, 다음월급, DeepSogak, ChemiCheck119의 문제 발견·개인 기여·검증 결과를 소개하는 한국어 포트폴리오입니다.
 
-## 구성
+## 기술과 실행
 
-외부 의존성이 없는 정적 사이트입니다. Node.js 20 이상으로 HTML을 생성하며 JavaScript가 비활성화되어도 본문과 링크를 사용할 수 있습니다.
-
-- `src/data.mjs`: 프로필, 프로젝트 성과, 경력, 기술 데이터
-- `src/case-data.mjs`: FOWOCO 개인 기여와 문제 해결 사례
-- `src/components.mjs`: 공통 UI 컴포넌트
-- `src/sections.mjs`: 페이지 섹션
-- `src/build.mjs`: HTML 빌드 및 파일 복사
-- `src/styles.css`: 데스크톱·모바일 스타일
-- `src/client.js`: 스크롤 위치에 따른 메뉴 표시
-- `public/`: favicon 및 공개 이미지
-- `docs/`: GitHub Pages에 게시하는 빌드 결과
-
-## 수정·실행
+React 19 · Vite 8 · Motion · React Bits. 서버나 DB 없이 GitHub Pages에 정적으로 배포합니다. 빌드 시 React 내용을 HTML로 미리 렌더링하여 JavaScript 로딩 전에도 문장과 성과를 읽을 수 있습니다.
 
 ```sh
+npm ci
+npm run dev
 npm run build
 npm run preview
 ```
 
-미리보기 주소는 `http://localhost:4173`입니다. 수정 후 빌드하고 브라우저를 새로고침합니다. `src`와 생성된 `docs`를 함께 커밋하면 GitHub Pages가 `main` 브랜치의 `/docs`에서 게시합니다.
+개발/미리보기 주소: `http://127.0.0.1:4173`. Node.js 22.12 이상 권장.
 
-## 프로젝트 이미지 교체
+## 수정 위치
 
-현재 FOWOCO 화면은 명시적인 자리표시자입니다. 공개 가능한 실제 스크린샷을 `public/images/fowoco.webp`에 넣고, `src/components.mjs`의 `screenshot()` 출력을 다음과 같이 교체한 후 빌드합니다.
+- `src/data.mjs`: 프로젝트, 기간, 역할, 성과, 경력, 기술 데이터
+- `src/case-data.mjs`: FOWOCO 개인 기여와 문제 해결 사례
+- `src/components/Hero.jsx`: 첫 화면의 메시지와 업무 흐름
+- `src/components/Projects.jsx`: 네 프로젝트와 이미지 확대
+- `src/components/CaseStudy.jsx`: FOWOCO 상세 사례
+- `src/components/Background.jsx`: 경력·기술·추가 프로젝트·연락
+- `src/components/reactbits/`: React Bits 공식 소스와 제한적인 수정
+- `src/styles.css`: 전체 디자인·반응형·모션 감소 설정
+- `public/images/`: 공개 가능한 서비스 데모 이미지
+- `scripts/prerender.mjs`: React HTML 사전 렌더링
+- `docs/`: GitHub Pages 배포 결과
 
-```html
-<img
-  class="service-screenshot"
-  src="./images/fowoco.webp"
-  alt="FOWOCO의 업무 진행 상태와 HR 승인 화면"
-  loading="lazy"
-  width="1200"
-  height="800"
-/>
-```
+스크린샷을 교체하려면 `public/images`에 공개 가능한 이미지를 넣고 `src/data.mjs`의 해당 프로젝트 `image` 경로를 수정합니다. 실제 이름·문서·민감정보가 없는 화면만 사용합니다.
 
-이미지 비율은 원본을 유지하고, 개인정보가 없는 공개 화면만 사용합니다. 서비스 화면이 없는 프로젝트는 도식과 검증 결과로 설명합니다.
+수정 후 `npm run build`를 실행하고 소스와 `docs`를 함께 커밋·push하면 `main:/docs`로 배포됩니다.
 
-## 성과 표기
+## React Bits
 
-- FOWOCO 2→1은 동일 요청의 **Intent 분류 횟수**입니다.
-- FOWOCO Task 4/4는 **합성 문서 기반 로컬 E2E 대표 Case 1개**의 결과입니다.
-- 다음월급 31/31·20/20은 고정 평가셋에서의 **필요 근거 회수·조건 변화 구조 검사**입니다.
-- DeepSogak은 **기준 미달 보정 모델의 적용 중단**과 **별도 딥페이크 분석 API 구현**을 구분합니다.
-- 팀 성과와 개인 담당 범위를 함께 표기합니다.
+공식 [React Bits](https://reactbits.dev/)의 **BlurText · SpotlightCard · CountUp**을 사용했습니다. 출처와 수정 내용은 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md), 전체 라이선스는 [licenses/REACT-BITS-LICENSE.md](licenses/REACT-BITS-LICENSE.md)에 보존했습니다.
+
+`prefers-reduced-motion`에서는 제목과 숫자를 정적으로 표시합니다. 수치의 접근성용 최종값은 항상 유지하며, 비율·퍼센트 성과는 애니메이션으로 변형하지 않습니다.
+
+## 성과의 범위
+
+- FOWOCO 2→1은 동일 요청의 **Intent 분류 횟수**이며, 4/4는 **합성 문서 기반 로컬 E2E 대표 Case**의 Task 결과입니다.
+- 다음월급 31/31·20/20은 고정 평가셋의 **근거 회수·조건 변화 구조 검사**입니다.
+- DeepSogak은 **보정 모델 적용 중단**과 **별도 딥페이크 분석 API**를 구분합니다.
+- ChemiCheck119 32.46→89.74%는 **과거 사고 표현 419건의 재식별 평가**입니다. 새 표현 60건은 개선되지 않았고, 실제 현장 정확도로 일반화하지 않습니다.
+- 서비스 화면의 예시 건수와 팀 수상을 개인의 실사용 성과로 표현하지 않습니다.
