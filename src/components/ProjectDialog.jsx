@@ -142,7 +142,7 @@ export default function ProjectDialog({
 
           {project.image && (
             <figure className="pd-screen">
-              <img src={project.image} alt={`${project.name} 서비스 화면`} />
+              <img src={project.image} alt={`${project.name} ${project.imageLabel || "서비스 화면"}`} />
               {detail.imageCaption && <figcaption>{detail.imageCaption}</figcaption>}
             </figure>
           )}

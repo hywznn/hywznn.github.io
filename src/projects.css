@@ -18,6 +18,9 @@
 }
 .portfolio-cover { position: relative; display: block; aspect-ratio: 2.4; min-height: 210px; background: #e9eef8; overflow: hidden; border-bottom: 1px solid #dfe5ef; }
 .portfolio-cover > img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+.cover-nextsalary { background: #f6f8f7; }
+.cover-nextsalary > img { object-fit: contain; object-position: center; }
+.cover-nextsalary .cover-label { display: none; }
 .cover-label { position: absolute; top: 14px; left: 14px; padding: 4px 9px; border-radius: 5px; background: #fffef8f5; color: #42526c; font-size: 11px; box-shadow: 0 1px 5px #14254315; }
 .cover-open { position: absolute; bottom: 14px; right: 14px; width: 32px; height: 32px; display: grid; place-items: center; border-radius: 50%; background: #fff; color: #2859cf; border: 1px solid #d1daee; font-size: 18px; }
 .portfolio-card-body { padding: 22px 28px; }

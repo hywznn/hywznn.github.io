@@ -83,6 +83,8 @@ export const projects = [
   },
   {
     id: "nextsalary",
+    image: "/images/nextsalary-demo.png",
+    imageLabel: "연금 상담 데모 시안",
     name: "다음월급",
     category: "연금 의사결정 지원 AI Agent",
     period: "2026.07 — 2026.09",

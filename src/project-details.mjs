@@ -108,7 +108,7 @@ export const projectDetails = {
       "연금 정보를 찾는 사용자가 계좌·시점·금액·예외조건에 맞는 근거를 확인하도록 돕는 AI Agent입니다. 연금 문서를 검색한 뒤 조건과 출처를 검증하고, 확인한 내용을 설명합니다.",
     contribution:
       "담당 범위는 AI Agent·RAG·FastAPI·NCP입니다. 검색과 조건·계산·출처 검증, HyperCLOVA X의 설명 역할을 나누고 API로 연결하는 부분을 구현했습니다.",
-    imageCaption: null,
+    imageCaption: "연금 상담 데모 시안 · 질문의 조건, 답변 요약, 원문 근거와 다음 확인 사항을 한 화면에서 확인하는 구성입니다.",
     architecture: {
       title: "근거 검색과 조건 검증을 마친 뒤 LLM이 설명하는 구조",
       steps: [
