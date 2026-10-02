@@ -32,9 +32,14 @@ npm run preview
 현재 FOWOCO 화면은 명시적인 자리표시자입니다. 공개 가능한 실제 스크린샷을 `public/images/fowoco.webp`에 넣고, `src/components.mjs`의 `screenshot()` 출력을 다음과 같이 교체한 후 빌드합니다.
 
 ```html
-<img class="service-screenshot" src="./images/fowoco.webp"
-     alt="FOWOCO의 업무 진행 상태와 HR 승인 화면" loading="lazy"
-     width="1200" height="800">
+<img
+  class="service-screenshot"
+  src="./images/fowoco.webp"
+  alt="FOWOCO의 업무 진행 상태와 HR 승인 화면"
+  loading="lazy"
+  width="1200"
+  height="800"
+/>
 ```
 
 이미지 비율은 원본을 유지하고, 개인정보가 없는 공개 화면만 사용합니다. 서비스 화면이 없는 프로젝트는 도식과 검증 결과로 설명합니다.
