@@ -17,7 +17,7 @@ export default function Hero() {
           </div>
         </div>
         <SpotlightCard className="hero-profile" spotlightColor="rgba(76,120,255,.1)">
-          <h2 className="profile-kicker">직접 맡은 구현과 프로젝트 성과</h2>
+          <h2 className="profile-kicker">프로젝트로 확인한 결과</h2>
           <div className="hero-achievements">
             {profile.achievements.map(item => <a key={item.id} href={`#project/${item.id}`} aria-label={`${item.project} 성과와 구현 과정 보기`} aria-haspopup="dialog" onClick={event => event.currentTarget.focus({ preventScroll: true })}>
               <p className="achievement-project"><b>{item.project}</b><span>{item.contribution}</span><Arrow /></p>

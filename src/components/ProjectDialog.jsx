@@ -1,5 +1,4 @@
 import React, { useEffect, useRef } from "react";
-import { projectSummaries } from "../summary-data.mjs";
 import { External, Metrics, Tags } from "./UI.jsx";
 
 export default function ProjectDialog({
@@ -56,7 +55,6 @@ export default function ProjectDialog({
 
   if (!project || !detail) return null;
 
-  const role = projectSummaries[project.id]?.role || project.role;
   const number = String(index + 1).padStart(2, "0");
   const count = String(total).padStart(2, "0");
   const close = () => {
@@ -115,43 +113,46 @@ export default function ProjectDialog({
         <div className="pd-body" ref={bodyRef}>
           <header className="pd-heading">
             <p className="pd-eyebrow">프로젝트 상세</p>
-            <h2 id="project-detail-title" tabIndex={-1} ref={headingRef}>{project.name}</h2>
+            <div className="pd-name">{project.logo && <img src={project.logo} alt="" />}<h2 id="project-detail-title" tabIndex={-1} ref={headingRef}>{project.name}</h2></div>
             <p className="pd-category">{project.category}</p>
             <dl className="pd-meta">
               <div><dt>기간</dt><dd>{project.period}</dd></div>
-              <div><dt>담당</dt><dd>{role}</dd></div>
+              <div><dt>담당</dt><dd>{project.role}</dd></div>
             </dl>
-            <p className="pd-intro" id="project-detail-intro">{detail.intro}</p>
+            <p className="pd-intro" id="project-detail-intro">{project.description}</p>
 
             <Tags items={project.tech} />
+            <div className="pd-links pd-heading-links">
+              {project.github && <External href={project.github}>GitHub</External>}
+              {project.demo && <External href={project.demo}>공개 데모</External>}
+            </div>
           </header>
 
-
+          <figure className={`pd-screen pd-screen-${project.id}`}>
+            <img src={project.image} alt={`${project.name} ${project.imageLabel}`} />
+            <figcaption>{detail.imageCaption}</figcaption>
+          </figure>
 
           <section className={`pd-section${project.textMetrics ? " pd-text-metrics" : ""}`} aria-labelledby="project-detail-results">
             <div className="pd-section-heading">
               <span aria-hidden="true">01</span>
-              <h3 id="project-detail-results">{detail.resultTitle || "검증한 결과"}</h3>
+              <h3 id="project-detail-results">내가 맡은 일과 확인한 결과</h3>
             </div>
-            <Metrics items={project.metrics} note={project.condition} />
             <div className="pd-contribution">
-              <strong>내 기여</strong>
+              <strong>{project.role}</strong>
               <p>{detail.contribution}</p>
             </div>
+            <Metrics items={project.metrics} note={project.condition} />
+            {project.award && <p className="pd-award"><strong>팀 수상</strong>{project.award}</p>}
           </section>
-
-          {project.image && (
-            <figure className="pd-screen">
-              <img src={project.image} alt={`${project.name} ${project.imageLabel || "서비스 화면"}`} />
-              {detail.imageCaption && <figcaption>{detail.imageCaption}</figcaption>}
-            </figure>
-          )}
 
           <section className="pd-section" aria-labelledby="project-detail-architecture">
             <div className="pd-section-heading">
               <span aria-hidden="true">02</span>
-              <h3 id="project-detail-architecture">{detail.architecture.title}</h3>
+              <h3 id="project-detail-architecture">문제를 이해하고 구조를 정한 과정</h3>
             </div>
+            <div className="pd-context"><h4>{detail.context.title}</h4><p>{detail.context.body}</p></div>
+            <h4 className="pd-flow-title">{detail.architecture.title}</h4>
             <ol className="pd-flow">
               {detail.architecture.steps.map((step, stepIndex) => (
                 <li key={step.title}>
@@ -167,7 +168,7 @@ export default function ProjectDialog({
           <section className="pd-section" aria-labelledby="project-detail-decisions">
             <div className="pd-section-heading">
               <span aria-hidden="true">03</span>
-              <h3 id="project-detail-decisions">사용 기술과 선택 이유</h3>
+              <h3 id="project-detail-decisions">구현 과정과 기술 선택의 이유</h3>
             </div>
             <div className="pd-decisions">
               {detail.decisions.map((decision, decisionIndex) => (
@@ -181,6 +182,7 @@ export default function ProjectDialog({
                     <div><dt>선택·구현</dt><dd>{decision.action}</dd></div>
                     <div><dt>확인한 결과</dt><dd>{decision.result}</dd></div>
                   </dl>
+                  {decision.evidence && <div className="pd-links pd-decision-evidence">{decision.evidence.map(item => <External key={item.url} href={item.url}>{item.label}</External>)}</div>}
                 </article>
               ))}
             </div>
@@ -199,14 +201,14 @@ export default function ProjectDialog({
           )}
 
           <section className="pd-conclusion" aria-labelledby="project-detail-conclusion">
-            <p className="pd-eyebrow">경험에서 얻은 기준</p>
+            <p className="pd-eyebrow">이 프로젝트에서 얻은 경험</p>
             <h3 id="project-detail-conclusion">{detail.conclusion.title}</h3>
             <p>{detail.conclusion.body}</p>
           </section>
 
           <footer className="pd-footer">
-            {project.award && <p className="pd-award"><strong>팀 수상</strong>{project.award}</p>}
             <div className="pd-links">
+              {detail.evidence?.map(item => <External key={item.url} href={item.url}>{item.label}</External>)}
               {project.github && <External href={project.github}>GitHub 저장소</External>}
               {project.demo && <External href={project.demo}>공개 데모</External>}
               {project.evaluation && <External href={project.evaluation}>평가 근거</External>}
