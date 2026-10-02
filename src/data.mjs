@@ -211,7 +211,7 @@ export const strengths = [
   },
 ];
 
-export const experience = [
+export const education = [
   {
     date: "2026.03 — 2026.09",
     title: "KT AIVLE School 9기 AI Track",
@@ -224,6 +224,9 @@ export const experience = [
     title: "광운대학교 정보융합학 전공",
     detail: "GPA 3.87 / 4.5 · 학사 졸업",
   },
+];
+
+export const qualifications = [
   {
     date: "2025.11",
     title: "ADsP · 데이터분석 준전문가",

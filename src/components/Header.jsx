@@ -3,7 +3,7 @@ import { External } from "./UI.jsx";
 const items = [
   ["projects", "프로젝트"],
   ["about", "역량"],
-  ["experience", "경험·교육"],
+  ["experience", "학력·자격"],
   ["skills", "기술"],
   ["contact", "연락"],
 ];

@@ -1,5 +1,5 @@
 import React from "react";
-import { experience, skills, profile } from "../data.mjs";
+import { education, qualifications, skills, profile } from "../data.mjs";
 import { SectionHeading, Tags, External, Arrow } from "./UI.jsx";
 export function Experience() {
   return (
@@ -7,31 +7,40 @@ export function Experience() {
       <div className="container two-column-section">
         <SectionHeading
           number="03"
-          eyebrow="Experience & Education"
-          title={
-            <>
-              배운 기술을
-              <br />
-              실제 문제에 적용했습니다.
-            </>
-          }
+          eyebrow="학력 · 자격"
+          title="학력·교육 및 자격"
         />
-        <div className="timeline">
-          {experience.map((x, i) => (
-            <article key={x.title}>
-              <span className="timeline-dot" />
-              <time>{x.date}</time>
-              <h3>{x.title}</h3>
-              <p>{x.detail}</p>
-              {x.tags && (
-                <ol className="education-flow">
-                  {x.tags.map((t) => (
-                    <li key={t}>{t}</li>
-                  ))}
-                </ol>
-              )}
-            </article>
-          ))}
+        <div className="background-groups">
+          <section aria-labelledby="education-heading">
+            <h3 id="education-heading" className="background-group-title">학력·교육</h3>
+            <div className="timeline">
+              {education.map(x => (
+                <article key={x.title}>
+                  <span className="timeline-dot" aria-hidden="true" />
+                  <time>{x.date}</time>
+                  <h4>{x.title}</h4>
+                  <p>{x.detail}</p>
+                  {x.tags && (
+                    <ol className="education-flow">
+                      {x.tags.map(t => <li key={t}>{t}</li>)}
+                    </ol>
+                  )}
+                </article>
+              ))}
+            </div>
+          </section>
+          <section className="qualification-group" aria-labelledby="qualification-heading">
+            <h3 id="qualification-heading" className="background-group-title">자격·어학</h3>
+            <div className="qualification-grid">
+              {qualifications.map(x => (
+                <article key={x.title}>
+                  <time>{x.date}</time>
+                  <h4>{x.title}</h4>
+                  <p>{x.detail}</p>
+                </article>
+              ))}
+            </div>
+          </section>
         </div>
       </div>
     </section>

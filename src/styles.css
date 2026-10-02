@@ -512,6 +512,14 @@ details[open] > summary > span[aria-hidden] { transform: rotate(45deg); }
   grid-template-columns: 1fr 1.4fr;
   gap: 75px;
 }
+.background-groups { min-width: 0; }
+.background-group-title { color: #405777; font-size: 15px; letter-spacing: 0; margin-bottom: 20px; }
+.qualification-group { margin-top: 32px; padding-top: 26px; border-top: 1px solid #d9e1ed; }
+.qualification-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 16px; }
+.qualification-grid article { min-width: 0; background: #fff; border: 1px solid #dce3ee; border-radius: 8px; padding: 18px; }
+.qualification-grid time { color: #718199; font-size: 13px; }
+.qualification-grid h4 { font-size: 18px; line-height: 1.5; margin-top: 9px; }
+.qualification-grid p { font-size: 13px; color: var(--muted); line-height: 1.75; margin-top: 10px; }
 .timeline {
   border-left: 1px solid #cdd7e8;
   padding-left: 30px;
@@ -538,7 +546,7 @@ details[open] > summary > span[aria-hidden] { transform: rotate(45deg); }
   font-size: 12px;
   color: #8190a6;
 }
-.timeline h3 {
+.timeline h4 {
   font-size: 22px;
   margin-top: 9px;
 }
@@ -814,7 +822,9 @@ footer { font-size: 12px; color: #5e6c82; }
   .two-column-section { grid-template-columns: 1fr; gap: 4px; }
   .timeline { margin-top: 8px; padding-left: 24px; }
   .timeline-dot { left: -28px; }
-  .timeline h3 { font-size: 20px; }
+  .timeline h4 { font-size: 20px; }
+  .qualification-group { margin-top: 28px; padding-top: 24px; }
+  .qualification-grid { grid-template-columns: 1fr; gap: 12px; }
   .skills-grid { grid-template-columns: 1fr 1fr; gap: 28px 20px; }
   .skills-grid h3 { font-size: 16px; }
   .other-section { padding-top: 0; }
