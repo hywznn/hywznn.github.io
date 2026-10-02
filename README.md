@@ -41,7 +41,7 @@ npm run preview
 
 공식 [React Bits](https://reactbits.dev/)의 **SpotlightCard**을 사용했습니다. 출처와 수정 내용은 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md), 전체 라이선스는 [licenses/REACT-BITS-LICENSE.md](licenses/REACT-BITS-LICENSE.md)에 보존했습니다.
 
-제목과 모든 숫자는 처음부터 정적으로 표시합니다. 숫자 카운트업을 사용하지 않으며, hover 강조에만 SpotlightCard를 사용합니다. 프로젝트 목록은 핵심 결과를 먼저 보여주고, 구현·검증 상세는 별도 창에서 읽을 수 있습니다. `#project/fowoco`처럼 프로젝트별 직접 링크를 지원합니다. 이미지가 없는 프로젝트는 실제 서비스 화면이 아님을 표시한 흐름 요약을 보여줍니다.
+제목과 모든 숫자는 처음부터 정적으로 표시합니다. 숫자 카운트업을 사용하지 않으며, 소개 카드의 hover 강조에 SpotlightCard를 사용합니다. 프로젝트 카드는 전체 영역에서 상세 창을 열 수 있고, 마우스를 올리면 소폭 확대됩니다. 키보드 포커스와 모션 감소 설정을 지원하며 GitHub는 별도의 새 탭 링크입니다. `#project/fowoco`처럼 프로젝트별 직접 링크를 지원합니다. 다음월급·DeepSogak의 표지는 각 서비스의 처리 흐름을 도식으로 보여줍니다.
 
 ## 성과의 범위
 

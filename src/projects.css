@@ -1,19 +1,30 @@
 /* Image-led project catalogue and a shared, readable case-study dialog. */
 .portfolio-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 28px; align-items: start; }
-.portfolio-card { min-width: 0; border: 1px solid #dce2ed; border-radius: 14px; overflow: hidden; background: #fff; }
+.portfolio-card { position: relative; isolation: isolate; min-width: 0; border: 1px solid #dce2ed; border-radius: 14px; overflow: hidden; background: #fff; transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease; }
 .portfolio-card-featured { border-color: #829edb; box-shadow: 0 0 0 1px #829edb; }
+.portfolio-card:has(.portfolio-detail-link:focus-visible) { outline: 3px solid #5b89ff; outline-offset: 4px; }
+.portfolio-detail-link::after { content: ""; position: absolute; inset: 0; z-index: 1; border-radius: 14px; cursor: pointer; }
+.portfolio-detail-link:focus-visible { outline: none; }
+.portfolio-github { position: relative; z-index: 2; }
+@media (hover: hover) and (pointer: fine) {
+ .portfolio-card:hover { transform: translateY(-4px) scale(1.018); border-color: #829edb; box-shadow: 0 14px 32px #18356118; }
+ .portfolio-card:hover h3 { color: #2859cf; }
+ .portfolio-card:hover .cover-open { background: #2859cf; color: #fff; }
+ .portfolio-card:hover .portfolio-detail-link { background: #dfe9ff; }
+}
+@media (prefers-reduced-motion: reduce) {
+ .portfolio-card { transition: none; }
+ .portfolio-card:hover { transform: none; }
+}
 .portfolio-cover { position: relative; display: block; aspect-ratio: 2.4; min-height: 210px; background: #e9eef8; overflow: hidden; border-bottom: 1px solid #dfe5ef; }
 .portfolio-cover > img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
-.portfolio-cover:focus-visible { outline-offset: -5px; }
 .cover-label { position: absolute; top: 14px; left: 14px; padding: 4px 9px; border-radius: 5px; background: #fffef8f5; color: #42526c; font-size: 11px; box-shadow: 0 1px 5px #14254315; }
 .cover-open { position: absolute; bottom: 14px; right: 14px; width: 32px; height: 32px; display: grid; place-items: center; border-radius: 50%; background: #fff; color: #2859cf; border: 1px solid #d1daee; font-size: 18px; }
-.portfolio-cover:hover .cover-open { background: #2859cf; color: white; }
 .portfolio-card-body { padding: 22px 28px; }
 .portfolio-card-top { display: flex; align-items: center; justify-content: space-between; gap: 16px; font-size: 12px; color: #637188; margin-bottom: 10px; }
 .portfolio-card-top > span { color: #2859cf; font-weight: 700; }
 .portfolio-card-top > time { white-space: nowrap; }
 .portfolio-card h3 { font-size: 29px; letter-spacing: -.035em; line-height: 1.25; }
-.portfolio-card h3 a:hover { color: #2859cf; }
 .portfolio-category { margin-top: 6px; font-size: 15px; color: #35465e; }
 .portfolio-role { display: flex; gap: 10px; margin-top: 14px; font-size: 12px; color: #627088; min-height: 22px; }
 .portfolio-role > span { color: #8992a1; flex-shrink: 0; }
@@ -41,7 +52,6 @@
 .portfolio-actions > a:last-child:not(.portfolio-detail-link) { display: flex; align-items: center; gap: 7px; font-size: 12px; color: #62718a; }
 .concept-cover { height: 100%; padding: 46px 26px 19px; display: flex; flex-direction: column; justify-content: center; background: #eaf0fa; }
 .cover-deepsogak .concept-cover { background: #e9edf3; }
-.concept-label { display: none; }
 .concept-cover > strong { font-size: 21px; color: #2d456c; letter-spacing: -.035em; }
 .concept-flow { display: flex; align-items: center; gap: 8px; margin-top: 18px; }
 .concept-flow > span { display: flex; flex: 1; flex-direction: column; justify-content: center; min-height: 61px; gap: 5px; text-align: center; font-size: 12px; color: #2e476f; background: #fffffff0; border: 1px solid #c8d6ec; border-radius: 8px; }
