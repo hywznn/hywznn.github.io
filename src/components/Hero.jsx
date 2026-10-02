@@ -9,7 +9,7 @@ export default function Hero() {
       <div className="container hero-grid">
         <div className="hero-copy">
           <p className="hero-identity"><span>{profile.role}</span></p>
-          <h1>{profile.headline[0]}<br /><span>{profile.headline[1]}</span></h1>
+          <h1>{profile.headline.map((line, index) => <span key={line} className={index === profile.headline.length - 1 ? "hero-name" : undefined}>{line}</span>)}</h1>
           <p className="hero-description">{profile.description}</p>
           <div className="hero-actions">
             <a className="button button-primary" href="#projects">프로젝트 보기 <Arrow /></a>
@@ -17,13 +17,14 @@ export default function Hero() {
           </div>
         </div>
         <SpotlightCard className="hero-profile" spotlightColor="rgba(76,120,255,.1)">
-          <h2 className="profile-kicker">저를 소개합니다</h2>
-          <dl className="profile-background">
-            {profile.background.map(item => <div key={item.label}>
-              <dt>{item.label}</dt>
-              <dd><strong>{item.title}</strong><span>{item.detail}</span></dd>
-            </div>)}
-          </dl>
+          <h2 className="profile-kicker">직접 맡은 구현과 프로젝트 성과</h2>
+          <div className="hero-achievements">
+            {profile.achievements.map(item => <a key={item.id} href={`#project/${item.id}`} aria-label={`${item.project} 성과와 구현 과정 보기`} aria-haspopup="dialog" onClick={event => event.currentTarget.focus({ preventScroll: true })}>
+              <p className="achievement-project"><b>{item.project}</b><span>{item.contribution}</span><Arrow /></p>
+              <strong className="achievement-result">{item.result}</strong>
+              <p className="achievement-context">{item.context.map(line => <span key={line}>{line}</span>)}</p>
+            </a>)}
+          </div>
         </SpotlightCard>
       </div>
     </section>

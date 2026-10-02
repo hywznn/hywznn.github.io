@@ -3,13 +3,24 @@ export const profile = {
   role: "AI Service / Agent Developer",
   email: "choi.hyunjun@outlook.com",
   github: "https://github.com/hywznn",
-  headline: ["AI를 서비스로 연결하는", "개발자 최현준입니다."],
+  headline: ["수상작을 개발하고,", "AI 업무를 완료까지 연결한", "개발자 최현준입니다."],
   description:
-    "검색에서 빠진 근거와 화면·서버 사이에서 멈춘 요청을 찾아 고쳐 왔습니다. 모델·API·사용자 화면을 연결하고, 구현한 결과를 검증하는 개발자입니다.",
-  background: [
-    { label: "전공", title: "광운대학교 정보융합학", detail: "학사 졸업" },
-    { label: "교육", title: "KT AIVLE School 9기", detail: "AI Track 수료" },
-    { label: "경험", title: "TPM · Frontend · AI·Backend 통합", detail: "요구사항 정리부터 구현·통합 검증까지" },
+    "AUTA에서는 업로드·인증 오류를 해결했고, FOWOCO에서는 문서 처리 뒤 멈춘 업무를 승인·증빙·완료까지 연결했습니다.",
+  achievements: [
+    {
+      project: "AUTA",
+      id: "auta",
+      contribution: "클라이언트 개발",
+      result: "장려상 · 특허 출원",
+      context: ["졸업작품전시회 팀 수상", "관련 기술 특허 공동발명자"],
+    },
+    {
+      project: "FOWOCO",
+      id: "fowoco",
+      contribution: "OCR 이후 업무 재개 구현",
+      result: "4 / 4 업무 완료",
+      context: ["합성 문서 기반 로컬 E2E", "대표 Case 1개 · Task 4개 완료"],
+    },
   ],
 };
 
