@@ -86,16 +86,6 @@ export function Contact() {
       </section>
       <footer className="container">
         <span>© 2026 최현준</span>
-        <span>
-          React ·{" "}
-          <a
-            href="https://reactbits.dev/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React Bits
-          </a>
-        </span>
         <a href="#top">처음으로 ↑</a>
       </footer>
     </>

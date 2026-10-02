@@ -216,6 +216,11 @@ export const experience = [
     title: "ADsP · 데이터분석 준전문가",
     detail: "한국데이터산업진흥원",
   },
+  {
+    date: "2026.03.30",
+    title: "OPIc English · IM1",
+    detail: "영어 말하기 평가 · Intermediate Mid 1",
+  },
 ];
 
 export const skills = [
