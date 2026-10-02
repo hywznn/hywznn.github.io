@@ -1,98 +1,97 @@
-import React, { useRef } from "react";
+import React, { useEffect, useState } from "react";
 import { projects } from "../data.mjs";
 import { projectSummaries } from "../summary-data.mjs";
-import { SectionHeading, External, Arrow, Tags, Metrics } from "./UI.jsx";
+import { projectDetails } from "../project-details.mjs";
+import ProjectDialog from "./ProjectDialog.jsx";
+import { SectionHeading, External, Arrow } from "./UI.jsx";
+import "../projects.css";
 
-function ProjectLinks({ project: p }) {
-  return <div className="project-links">
-    {p.github && <External href={p.github}>GitHub</External>}
-    {p.demo && <External href={p.demo}>공개 데모</External>}
-    {p.evaluation && <External href={p.evaluation}>평가 근거</External>}
-  </div>;
+const cardCopy = {
+  fowoco: "자연어 행정 요청을 서류 확인, 담당자 승인, 완료 증빙까지 연결한 업무형 Agent입니다.",
+  nextsalary: "계좌·시점·금액에 따라 달라지는 연금 질문에 필요한 근거를 찾아 설명하는 Agent입니다.",
+  deepsogak: "본인 얼굴의 동일인 여부를 확인한 뒤 딥페이크를 분석하는 피해 지원 서비스입니다.",
+  chemicheck119: "신고문에서 물질 후보를 찾고, 현장에서 확인한 두 물질의 조합을 공식 규칙으로 검토합니다.",
+};
+const coverFlows = {
+  nextsalary: { title: "근거를 먼저 확인하는 연금 상담", steps: ["연금 질문", "근거 검색", "조건 검증", "답변 설명"], note: "검색·검증은 프로그램이, 설명은 LLM이" },
+  deepsogak: { title: "동일인 확인에서 합성물 분석까지", steps: ["얼굴 입력", "동일인 확인", "합성물 분석"], note: "얼굴 인식과 딥페이크 탐지를 분리" },
+};
+const cardConditions = {
+  fowoco: "합성 문서 · 대표 Case 1개 · 실제 기관 제출 아님.",
+  nextsalary: "고정 질문의 근거 검색 평가 · 답변 정확도 아님.",
+  deepsogak: "저화질 TAR 하락·FAR 목표 초과로 보정 모델 적용 중단.",
+  chemicheck119: "과거 사고 표현 419건 · 새 표현 60건 개선 없음 · 현장 정확도 아님.",
+};
+
+function ProjectCover({ project }) {
+  const flow = coverFlows[project.id];
+  return <a className={`portfolio-cover cover-${project.id}`} href={`#project/${project.id}`} aria-label={`${project.name} 상세 보기`} aria-haspopup="dialog">
+    {project.image ? <img src={project.image} alt={`${project.name} 공개 데모 화면`} loading="lazy" /> : <div className="concept-cover">
+      <span className="concept-label">서비스 흐름 요약</span>
+      <strong>{flow.title}</strong>
+      <div className="concept-flow" aria-hidden="true">{flow.steps.map((step, i) => <React.Fragment key={step}><span><b>{String(i+1).padStart(2,"0")}</b>{step}</span>{i<flow.steps.length-1 && <i>→</i>}</React.Fragment>)}</div>
+      <p>{flow.note}</p>
+    </div>}
+    <span className="cover-label">{project.image ? "공개 데모 화면" : "구조 요약 · 실제 화면 아님"}</span>
+    <span className="cover-open" aria-hidden="true">↗</span>
+  </a>;
 }
-function Story({ p }) {
-  return <dl className="project-story">
-    <div><dt>발견한 문제</dt><dd>{p.problem}</dd></div>
-    <div><dt>직접 바꾼 부분</dt><dd>{p.action}</dd></div>
-    <div><dt>확인한 결과</dt><dd>{p.result}</dd></div>
-  </dl>;
-}
-function Screen({ src, alt }) {
-  const ref = useRef(null);
-  return <>
-    <button className="screen-button" onClick={() => ref.current?.showModal()} aria-label={`${alt} 크게 보기`}>
-      <img src={src} alt={alt} loading="lazy" />
-      <span>화면 확대 ↗</span>
-    </button>
-    <dialog ref={ref} className="image-dialog" onClick={(e) => { if (e.target === e.currentTarget) ref.current.close(); }}>
-      <button className="dialog-close" onClick={() => ref.current.close()} aria-label="확대 화면 닫기">닫기 ×</button>
-      <img src={src} alt={alt} />
-    </dialog>
-  </>;
-}
-function Outcome({ summary: s }) {
-  return <div className="project-outcome">
-    <p className="outcome-label">{s.label}</p>
-    <strong>{s.value}</strong>
-    <p className="outcome-condition">{s.condition}</p>
-  </div>;
-}
-function Featured() {
-  const p = projects[0], s = projectSummaries[p.id];
-  return <article className="featured-project" id={p.id}>
-    <div className="project-meta"><span>01 · 대표 프로젝트</span><time>{p.period}</time></div>
-    <div className="featured-grid">
-      <div className="featured-copy">
-        <h3>{p.name}</h3><p className="project-category">{p.category}</p>
-        <p className="project-role"><span>내 역할</span>{s.role}</p>
-        <h4>{s.outcome}</h4>
-        <dl className="summary-story">
-          <div><dt>문제</dt><dd>{s.problem}</dd></div>
-          <div><dt>해결</dt><dd>{s.action}</dd></div>
-        </dl>
-        <a className="case-link" href="#fowoco-case">구현 과정 자세히 보기 <Arrow /></a>
-      </div>
-      <div className="featured-evidence">
-        <Screen src={p.image} alt="FOWOCO의 업무 요청·승인 대기·Agent 작업 공간 데모" />
-        <p className="screen-caption">공식 데모 화면 · 화면 속 업무 건수는 예시입니다.</p>
-        <Outcome summary={s} />
-      </div>
-    </div>
-    <div className="featured-footer"><Tags items={["Spring Boot", "FastAPI", "PostgreSQL", "Outbox"]} /><ProjectLinks project={p} /></div>
-  </article>;
-}
-function CompactProject({ p, index }) {
+
+function ProjectCard({ project: p, index }) {
   const s = projectSummaries[p.id];
-  return <article className={`compact-project ${p.id}`} id={p.id}>
-    <div className="project-meta"><span>{index}</span><time>{p.period}</time></div>
-    <h3>{p.name}</h3><p className="project-category">{p.category}</p>
-    <p className="project-role"><span>내 역할</span>{s.role}</p>
-    <Outcome summary={s} />
-    <dl className="summary-story">
-      <div><dt>문제</dt><dd>{s.problem}</dd></div>
-      <div><dt>해결</dt><dd>{s.action}</dd></div>
-    </dl>
-    <details className="project-details">
-      <summary>구현·검증 자세히 보기 <span aria-hidden="true">+</span></summary>
-      <div className="project-detail-body">
-        <Story p={p} />
-        {p.flow && <ol className="mini-flow" aria-label="검색과 검증, 설명 역할 분리">{p.flow.map(x => <li key={x}>{x}</li>)}</ol>}
-        <Metrics items={p.metrics} note={p.condition} />
-        {p.contribution && <p className="contribution-note">{p.contribution}</p>}
-        {p.award && <p className="award"><b>팀 수상</b>{p.award}</p>}
-        {p.image && <><Screen src={p.image} alt="ChemiCheck119의 지도와 대응충돌검토 공개 데모" /><p className="screen-caption">합성 데이터 기반 공모전 데모 · 실제 119 지령망 미연동</p></>}
-        <Tags items={p.tech} />
-        <ProjectLinks project={p} />
+  return <article className={`portfolio-card ${index === 0 ? "portfolio-card-featured" : ""}`} id={p.id}>
+    <ProjectCover project={p} />
+    <div className="portfolio-card-body">
+      <div className="portfolio-card-top"><span>{String(index+1).padStart(2,"0")}{index === 0 && " · 대표 프로젝트"}</span><time>{p.period}</time></div>
+      <h3><a href={`#project/${p.id}`} aria-haspopup="dialog">{p.name}</a></h3>
+      <p className="portfolio-category">{p.category}</p>
+      <p className="portfolio-role"><span>담당</span>{s.role}</p>
+      <p className="portfolio-intro">{cardCopy[p.id]}</p>
+      <div className={`portfolio-result result-${p.id}`}>
+        <div><strong>{s.value}</strong><span>{s.label}</span></div>
+        <p>{cardConditions[p.id]}</p>
       </div>
-    </details>
+
+      <div className="portfolio-actions">
+        <a className="portfolio-detail-link" href={`#project/${p.id}`} aria-haspopup="dialog">상세 보기 <Arrow /></a>
+        {p.github && <External href={p.github}>GitHub</External>}
+      </div>
+    </div>
   </article>;
 }
+
+function projectFromHash() {
+  const hash = window.location.hash;
+  if (hash === "#fowoco-case" || hash.startsWith("#case-")) return "fowoco";
+  const id = hash.startsWith("#project/") ? hash.slice(9) : null;
+  return projects.some(p => p.id === id) ? id : null;
+}
+
 export default function Projects() {
-  return <section id="projects" className="section projects-section">
-    <div className="container">
-      <SectionHeading number="01" eyebrow="Selected projects" title="어떤 문제를, 어떻게 바꿨는가" />
-      <Featured />
-      <div className="project-grid">{projects.slice(1).map((p,i) => <CompactProject key={p.id} p={p} index={`0${i+2}`} />)}</div>
-    </div>
-  </section>;
+  const [selectedId, setSelectedId] = useState(null);
+  useEffect(() => {
+    const sync = () => setSelectedId(projectFromHash());
+    sync();
+    window.addEventListener("hashchange", sync);
+    return () => window.removeEventListener("hashchange", sync);
+  }, []);
+  const selectedIndex = projects.findIndex(p => p.id === selectedId);
+  const selectedProject = projects[selectedIndex];
+  const close = () => {
+    window.history.replaceState(null, "", `${window.location.pathname}${window.location.search}#projects`);
+    setSelectedId(null);
+  };
+  const navigate = (direction) => {
+    const next = projects[(selectedIndex + direction + projects.length) % projects.length];
+    window.location.hash = `project/${next.id}`;
+  };
+  return <>
+    <section id="projects" className="section projects-section">
+      <div className="container">
+        <SectionHeading number="01" eyebrow="프로젝트" title="문제를 발견하고, 서비스로 해결한 경험" description="서비스 개요와 결과를 먼저 확인하고, 상세에서 구현 과정과 기술을 선택한 이유를 살펴볼 수 있습니다." />
+        <div className="portfolio-grid">{projects.map((p, index) => <ProjectCard key={p.id} project={p} index={index} />)}</div>
+      </div>
+    </section>
+    {selectedProject && <ProjectDialog project={selectedProject} detail={projectDetails[selectedId]} index={selectedIndex} total={projects.length} onClose={close} onNavigate={navigate} />}
+  </>;
 }

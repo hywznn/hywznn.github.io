@@ -6,7 +6,7 @@ FOWOCO, 다음월급, DeepSogak, ChemiCheck119의 문제 발견·개인 기여·
 
 ## 기술과 실행
 
-React 19 · Vite 8 · Motion · React Bits. 서버나 DB 없이 GitHub Pages에 정적으로 배포합니다. 빌드 시 React 내용을 HTML로 미리 렌더링하여 JavaScript 로딩 전에도 문장과 성과를 읽을 수 있습니다.
+React 19 · Vite 8 · React Bits. 서버나 DB 없이 GitHub Pages에 정적으로 배포합니다. 빌드 시 주요 페이지를 HTML로 미리 렌더링하여 JavaScript 로딩 전에도 개요와 대표 성과를 읽을 수 있습니다. 프로젝트 상세 창은 JavaScript로 열립니다.
 
 ```sh
 npm ci
@@ -21,13 +21,14 @@ npm run preview
 
 - `src/data.mjs`: 프로젝트, 기간, 역할, 성과, 경력, 기술 데이터
 - `src/summary-data.mjs`: 프로젝트 목록의 짧은 문제·해결·대표 결과
-- `src/case-data.mjs`: FOWOCO 개인 기여와 문제 해결 사례
+- `src/project-details.mjs`: 네 프로젝트의 개인 기여·아키텍처·기술 선택 이유
 - `src/components/Hero.jsx`: 첫 화면의 메시지와 업무 흐름
-- `src/components/Projects.jsx`: 네 프로젝트와 이미지 확대
-- `src/components/CaseStudy.jsx`: FOWOCO 상세 사례
+- `src/components/Projects.jsx`: 서비스 이미지/흐름 카드와 상세 링크
+- `src/components/ProjectDialog.jsx`: 키보드·뒤로 가기·프로젝트 이동을 지원하는 상세 창
 - `src/components/Background.jsx`: 경력·기술·추가 프로젝트·연락
 - `src/components/reactbits/`: React Bits 공식 소스와 제한적인 수정
-- `src/styles.css`: 전체 디자인·반응형·모션 감소 설정
+- `src/styles.css`: 기본 디자인·반응형·모션 감소 설정
+- `src/projects.css`: 프로젝트 카드·상세 창 디자인
 - `public/images/`: 공개 가능한 서비스 데모 이미지
 - `scripts/prerender.mjs`: React HTML 사전 렌더링
 - `docs/`: GitHub Pages 배포 결과
@@ -40,7 +41,7 @@ npm run preview
 
 공식 [React Bits](https://reactbits.dev/)의 **SpotlightCard**을 사용했습니다. 출처와 수정 내용은 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md), 전체 라이선스는 [licenses/REACT-BITS-LICENSE.md](licenses/REACT-BITS-LICENSE.md)에 보존했습니다.
 
-제목과 모든 숫자는 처음부터 정적으로 표시합니다. 숫자 카운트업을 사용하지 않으며, hover 강조에만 SpotlightCard를 사용합니다. 프로젝트 목록은 핵심 결과를 먼저 보여주고, 구현·검증 상세는 사용자가 펼쳐 읽을 수 있습니다.
+제목과 모든 숫자는 처음부터 정적으로 표시합니다. 숫자 카운트업을 사용하지 않으며, hover 강조에만 SpotlightCard를 사용합니다. 프로젝트 목록은 핵심 결과를 먼저 보여주고, 구현·검증 상세는 별도 창에서 읽을 수 있습니다. `#project/fowoco`처럼 프로젝트별 직접 링크를 지원합니다. 이미지가 없는 프로젝트는 실제 서비스 화면이 아님을 표시한 흐름 요약을 보여줍니다.
 
 ## 성과의 범위
 
@@ -49,3 +50,7 @@ npm run preview
 - DeepSogak은 **보정 모델 적용 중단**과 **별도 딥페이크 분석 API**를 구분합니다.
 - ChemiCheck119 32.46→89.74%는 **과거 사고 표현 419건의 재식별 평가**입니다. 새 표현 60건은 개선되지 않았고, 실제 현장 정확도로 일반화하지 않습니다.
 - 서비스 화면의 예시 건수와 팀 수상을 개인의 실사용 성과로 표현하지 않습니다.
+
+## 구성 참고
+
+[김경민 포트폴리오](https://bckmini.github.io/)의 Projects와 상세 창 정보 구성(이미지 카드·개요·성과·아키텍처·기술 선택 이유)을 참고했습니다. 문안·프로젝트 사실·개인 기여는 최현준의 기존 자료를 바탕으로 별도 작성했습니다.

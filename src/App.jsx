@@ -3,7 +3,6 @@ import Header from "./components/Header.jsx";
 import Hero from "./components/Hero.jsx";
 import About from "./components/About.jsx";
 import Projects from "./components/Projects.jsx";
-import CaseStudy from "./components/CaseStudy.jsx";
 import {
   Experience,
   Skills,
@@ -20,7 +19,6 @@ export default function App() {
       <main id="main">
         <Hero />
         <Projects />
-        <CaseStudy />
         <About />
         <Experience />
         <Skills />

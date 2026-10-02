@@ -18,7 +18,7 @@ try {
   );
   await writeFile("docs/.nojekyll", "");
   console.log(
-    "Prerendered Korean portfolio: full content available before JavaScript.",
+    "Prerendered Korean portfolio overview; interactive project details hydrate in the browser.",
   );
 } finally {
   await server.close();

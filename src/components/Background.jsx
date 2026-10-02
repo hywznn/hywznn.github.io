@@ -6,7 +6,7 @@ export function Experience() {
     <section id="experience" className="section experience-section">
       <div className="container two-column-section">
         <SectionHeading
-          number="04"
+          number="03"
           eyebrow="Experience & Education"
           title={
             <>
@@ -42,7 +42,7 @@ export function Skills() {
     <section id="skills" className="section skills-section">
       <div className="container">
         <SectionHeading
-          number="05"
+          number="04"
           eyebrow="Technical toolkit"
           title="프로젝트에서 선택하고 사용한 기술"
         />
@@ -64,7 +64,7 @@ export function OtherProjects() {
     <section id="other-projects" className="section other-section">
       <div className="container">
         <SectionHeading
-          number="06"
+          number="05"
           eyebrow="More work"
           title="데이터 분석과 서비스 개발의 다른 경험"
         />
