@@ -27,6 +27,7 @@
 .portfolio-result > p { font-size: 12px; color: #6a778b; margin-top: 9px; line-height: 1.75; }
 .result-chemicheck119 > div { gap: 10px; }
 .result-chemicheck119 strong { font-size: 25px; }
+.result-auta strong { font-size: 24px; white-space: normal; word-break: keep-all; line-height: 1.35; }
 .portfolio-summary > summary { display: flex; justify-content: space-between; align-items: center; font-size: 12px; color: #65728a; padding: 13px 0; }
 .portfolio-summary[open] > summary > span { transform: rotate(45deg); }
 .portfolio-summary dl { margin: 0 0 15px; padding: 16px; background: #f7f9fc; border-radius: 7px; }
@@ -83,6 +84,8 @@
 .pd-dialog .metrics > div { justify-content: flex-end; background: #f0f4fb; padding: 20px; border-radius: 8px; border: 1px solid #e2e9f6; gap: 8px; }
 .pd-dialog .metrics dd { font-size: 29px; color: #224b90; white-space: nowrap; }
 .pd-dialog .metrics dt { font-size: 12px; color: #516987; }
+.pd-dialog .pd-text-metrics .metrics > div { min-width: 0; }
+.pd-dialog .pd-text-metrics .metrics dd { font-size: 26px; line-height: 1.3; white-space: normal; word-break: keep-all; overflow-wrap: anywhere; }
 .pd-dialog .metric-note { font-size: 12px; color: #71819a; margin-top: 12px; line-height: 1.8; }
 .pd-flow { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 12px; counter-reset: step; }
 .pd-flow > li { position: relative; padding: 17px 18px 17px 49px; background: #f7f9fc; border: 1px solid #dce4f0; border-radius: 7px; }
@@ -100,6 +103,14 @@
 .pd-decision-story dt { font-size: 12px; color: #7a89a0; line-height: 1.9; }
 .pd-decision-story dd { margin: 0; font-size: 14px; color: #40536f; line-height: 1.9; }
 .pd-decision-story > div:last-child dd { color: #2d548d; }
+.pd-validation { margin-top: 28px; border: 1px solid #dce3ee; border-radius: 8px; background: #f9fafc; }
+.pd-validation > summary { display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 18px 20px; color: #38577f; font-size: 14px; font-weight: 600; line-height: 1.6; border-radius: 8px; }
+.pd-validation > summary:hover { background: #edf2fa; }
+.pd-validation > summary:focus-visible { outline: 3px solid #5b89ff; outline-offset: 3px; }
+.pd-validation > summary > span[aria-hidden] { flex-shrink: 0; font-size: 22px; color: #657fAA; }
+.pd-validation[open] > summary { border-bottom: 1px solid #e1e7f0; border-radius: 8px 8px 0 0; }
+.pd-validation-body { padding: 20px; }
+.pd-validation .metric-note { color: #5b6f8a; }
 .pd-conclusion { margin-top: 30px; background: #f1f5fd; border-left: 3px solid #426bc3; padding: 24px 25px; }
 .pd-conclusion h3 { font-size: 18px; line-height: 1.6; }
 .pd-conclusion > p:last-child { font-size: 14px; color: #536986; margin-top: 10px; line-height: 1.9; }
@@ -133,6 +144,7 @@
  .portfolio-result { min-height: 0; }
  .portfolio-result strong { font-size: 27px; }
  .result-chemicheck119 strong { font-size: 24px; }
+ .result-auta strong { font-size: 22px; }
  .cover-label { font-size: 10px; top: 10px; left: 10px; }
  .concept-cover { padding: 39px 18px 20px; }
  .concept-cover > strong { font-size: 18px; }
@@ -160,6 +172,7 @@
  .pd-dialog .metrics > div { padding: 16px 13px; }
  .pd-dialog .metrics dd { font-size: 24px; }
  .pd-dialog .metrics dt { font-size: 11px; }
+ .pd-dialog .pd-text-metrics .metrics dd { font-size: 22px; }
  .pd-dialog .metrics > div:last-child:nth-child(odd) { grid-column: 1/-1; }
  .pd-flow { grid-template-columns: 1fr; gap: 10px; }
  .pd-decision-head { gap: 10px; }
@@ -168,6 +181,9 @@
  .pd-decision-story > div { grid-template-columns: 1fr; gap: 5px; }
  .pd-decision-story dt { font-size: 11px; font-weight: 600; }
  .pd-decision-story dd { font-size: 14px; }
+ .pd-validation > summary { padding: 16px; gap: 12px; font-size: 13px; }
+ .pd-validation-body { padding: 16px; }
+ .pd-validation .metrics { grid-template-columns: repeat(auto-fit,minmax(145px,1fr)); }
  .pd-conclusion { padding: 20px; }
  .pd-conclusion h3 { font-size: 17px; }
  .pd-screen { margin-top: 24px; }
@@ -176,6 +192,7 @@
  .portfolio-card-body { padding-inline: 17px; }
  .portfolio-cover { aspect-ratio: 1.6; }
  .portfolio-card-top { flex-wrap: wrap; }
+ .result-auta strong { font-size: 20px; }
  .concept-cover { padding-inline: 14px; }
  .concept-cover > strong { font-size: 16px; }
  .concept-flow { gap: 3px; }
@@ -183,6 +200,7 @@
  .concept-flow i { font-size: 11px; }
  .pd-body { padding-inline: 17px; }
  .pd-dialog .metrics dd { font-size: 22px; }
+ .pd-dialog .pd-text-metrics .metrics dd { font-size: 20px; }
  .pd-heading h2 { font-size: 29px; }
 }
 @media (min-width:761px) {

@@ -128,10 +128,10 @@ export default function ProjectDialog({
 
 
 
-          <section className="pd-section" aria-labelledby="project-detail-results">
+          <section className={`pd-section${project.textMetrics ? " pd-text-metrics" : ""}`} aria-labelledby="project-detail-results">
             <div className="pd-section-heading">
               <span aria-hidden="true">01</span>
-              <h3 id="project-detail-results">검증한 결과</h3>
+              <h3 id="project-detail-results">{detail.resultTitle || "검증한 결과"}</h3>
             </div>
             <Metrics items={project.metrics} note={project.condition} />
             <div className="pd-contribution">
@@ -185,6 +185,18 @@ export default function ProjectDialog({
               ))}
             </div>
           </section>
+
+          {detail.validation && (
+            <details className="pd-validation" key={`${project.id}-validation`}>
+              <summary>
+                <span>{detail.validation.title}</span>
+                <span aria-hidden="true">+</span>
+              </summary>
+              <div className="pd-validation-body">
+                <Metrics items={detail.validation.metrics} note={detail.validation.note} />
+              </div>
+            </details>
+          )}
 
           <section className="pd-conclusion" aria-labelledby="project-detail-conclusion">
             <p className="pd-eyebrow">경험에서 얻은 기준</p>

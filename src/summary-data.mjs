@@ -9,6 +9,15 @@ export const projectSummaries = {
       "합성 문서 기반 로컬 E2E · 대표 Case 1개. 실제 기관 제출 실적이 아닙니다.",
     role: "TPM · 제품 설계 · Backend 통합",
   },
+  auta: {
+    problem: "디자인 검증 요청과 진행 현황을 사용자 화면으로 연결해야 했습니다.",
+    action: "대시보드·Figma JSON 업로드·인증 갱신과 재시도를 구현했습니다.",
+    outcome: "팀 프로젝트는 장려상을 받았고, 관련 기술 특허의 공동발명자로 참여했습니다.",
+    value: "장려상 · 특허 출원",
+    label: "졸업작품 · 관련 기술",
+    condition: "2025.11 팀 수상 · 2026.02.13 특허 출원·심사청구 · 공동발명자",
+    role: "Frontend · 대시보드·파일 업로드·인증 복구",
+  },
   nextsalary: {
     problem: "조건이 달라지는 연금 질문에서 필요한 근거를 놓쳤습니다.",
     action:
@@ -21,15 +30,15 @@ export const projectSummaries = {
     role: "AI Agent · RAG · FastAPI · NCP",
   },
   deepsogak: {
-    problem: "저화질 인식 보정 모델이 잠금 Test에서 기준에 미달했습니다.",
+    problem: "모델의 분석 결과를 피해 지원 서비스에서 사용할 수 있어야 했습니다.",
     action:
-      "보정 모델 적용을 멈추고, 별도 탐지 모델을 분석 API로 연결했습니다.",
-    outcome: "검증 기준에 못 미친 보정 모델의 API 적용을 보류했습니다.",
-    value: "적용 보류",
-    label: "기준 미달 보정 모델",
+      "동일인 확인과 딥페이크 분석을 나누고 ONNX·FastAPI로 연결했습니다.",
+    outcome: "분석 API를 구현했고, 팀은 해커톤 아이디어상을 받았습니다.",
+    value: "아이디어상",
+    label: "제8회 KDT 해커톤 · 팀 수상",
     condition:
-      "잠금 Test에서 저화질 TAR 하락·FAR 목표 초과. 별도 탐지 모델의 ONNX·FastAPI 구현과 구분합니다.",
-    role: "모델 검증 · FastAPI 분석 API",
+      "ONNX 변환·FastAPI 분석 API 구현. 보정 모델 실험 결과는 상세에 별도로 정리했습니다.",
+    role: "ONNX 변환 · FastAPI 분석 API · 모델 검증",
   },
   chemicheck119: {
     problem: "별칭과 카탈로그 밖 물질이 검색 후보에서 빠졌습니다.",

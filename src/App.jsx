@@ -6,7 +6,6 @@ import Projects from "./components/Projects.jsx";
 import {
   Experience,
   Skills,
-  OtherProjects,
   Contact,
 } from "./components/Background.jsx";
 export default function App() {
@@ -22,7 +21,6 @@ export default function App() {
         <About />
         <Experience />
         <Skills />
-        <OtherProjects />
         <Contact />
       </main>
     </>

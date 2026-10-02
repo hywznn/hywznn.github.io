@@ -46,6 +46,26 @@ export const projects = [
     image: "/images/fowoco-dashboard.png",
   },
   {
+    id: "auta",
+    image: "/images/auta-dashboard.png",
+    imageLabel: "직접 구현한 대시보드 · 개발 화면",
+    name: "AUTA",
+    category: "Figma 기반 UI/UX 자동 검증 서비스",
+    period: "개발 2025.04 — 2025.10",
+    role: "Frontend · React / TypeScript",
+    headline: "업로드 계약과 세션 오류를 고쳐, 화면의 요청을 서버 처리로 연결했습니다.",
+    description: "Figma 디자인과 구현 화면을 비교하는 팀 프로젝트입니다. 검증 현황 대시보드, Figma JSON 업로드, 인증·네트워크 예외 처리를 구현했습니다.",
+    metrics: [["장려상", "졸업작품전시회 · 팀 수상"], ["특허 출원", "관련 기술 · 공동발명자"]],
+    textMetrics: true,
+    condition: "2025.11 팀 수상 · 2026.02.13 관련 기술 특허 출원·심사청구. 특허 등록 전입니다.",
+    award: "2025학년도 광운대학교 인공지능융합대학 졸업작품전시회 장려상",
+    tech: ["React", "TypeScript", "TanStack Query", "Axios"],
+    github: "https://github.com/KW-AUTA/client",
+    problem: "디자인 파일을 검증 요청으로 전달하고, 프로젝트별 진행 상태를 사용자가 확인할 수 있는 화면이 필요했습니다.",
+    action: "대시보드 API를 화면과 연결하고 Figma JSON 업로드, 파일 검사, 인증 갱신·재시도를 구현했습니다.",
+    result: "검증 요청과 현황 확인을 위한 클라이언트를 구현했습니다. 팀은 졸업작품전시회 장려상을 받았고 관련 기술을 공동발명자로 특허 출원했습니다.",
+  },
+  {
     id: "nextsalary",
     name: "다음월급",
     category: "연금 의사결정 지원 AI Agent",
@@ -81,27 +101,29 @@ export const projects = [
     name: "DeepSogak",
     category: "AI 합성물 피해 지원 서비스",
     period: "2026.07 — 2026.08",
-    role: "AI Model Validation · FastAPI",
+    role: "ONNX · FastAPI · Model Validation",
     headline:
-      "잠금 Test에서 성능 하락을 확인하고, 보정 모델의 적용을 중단했습니다.",
+      "동일인 확인과 딥페이크 분석을 API로 연결해, 피해 지원 서비스를 구현했습니다.",
     description:
-      "저화질 얼굴 인식용 ArcFace 특징 보정 모델을 학습했지만 기준 미달을 확인했습니다. 신규 모델의 API 적용을 중단하고, 동일인 확인 후 딥페이크를 분석하는 검증 가능한 흐름에 집중했습니다.",
+      "AI 합성물 피해 지원을 위해 동일인 확인과 딥페이크 분석을 구분했습니다. 별도 탐지 모델을 ONNX로 변환하고 FastAPI 분석 API로 연결했습니다.",
     metrics: [
-      ["−0.96%p", "저화질 TAR, 기존 대비"],
-      ["0.125%", "최악 FAR · 목표 ≤ 0.1%"],
+      ["ONNX", "탐지 모델 변환"],
+      ["FastAPI", "분석 API 구현"],
+      ["아이디어상", "해커톤 · 팀 수상"],
     ],
+    textMetrics: true,
     condition:
-      "잠금 Test · 저화질 TAR 79.01% → 78.05%. 중단한 보정 모델과 별도 분석 API를 구분합니다.",
+      "직접 담당: 탐지 모델 ONNX 변환·FastAPI 분석 API·보정 모델 검증. 아이디어상은 팀 성과입니다.",
     award:
       "제8회 첨단산업·디지털 핵심 실무인재 양성훈련 해커톤 자유과제 부문 아이디어상",
     tech: ["ArcFace", "PyTorch", "ONNX", "FastAPI"],
     github: "https://github.com/Chunbae-A/deepsogak",
     problem:
-      "저화질 얼굴 인식을 개선하려 학습한 보정 모델이 잠금 Test에서 기존 모델보다 낮은 TAR을 보였습니다.",
+      "동일인 여부와 합성물 여부는 서로 다른 판단이며, 분석 모델을 사용자 서비스의 요청·응답으로 연결해야 했습니다.",
     action:
-      "FAR 목표까지 초과한 결과를 확인해 API 적용을 보류했습니다. 별도 EfficientNet-B4 탐지 모델은 ONNX·FastAPI 분석 흐름으로 구현했습니다.",
+      "동일인 확인 이후 딥페이크 분석으로 이어지는 흐름을 구성하고, EfficientNet-B4 탐지 모델을 ONNX·FastAPI로 연결했습니다.",
     result:
-      "확인되지 않은 보정 모델을 배포하지 않고, 동일인 확인과 딥페이크 분석의 역할을 분리했습니다.",
+      "서비스가 호출할 수 있는 분석 API를 구현했습니다. 팀은 제8회 KDT 해커톤 자유과제 부문 아이디어상을 받았습니다.",
   },
   {
     id: "chemicheck119",
@@ -162,9 +184,9 @@ export const strengths = [
     label: "RETRIEVAL / EVALUATION",
   },
   {
-    title: "배포 여부를 검증으로 결정합니다.",
-    body: "보정 모델의 성능 하락과 FAR 목표 초과를 확인해 적용을 멈추고, 별도 분석 흐름을 구현했습니다.",
-    proof: "DeepSogak · 잠금 Test 후 적용 보류",
+    title: "모델을 서비스 API로 연결합니다.",
+    body: "동일인 확인과 딥페이크 분석을 나누고, 탐지 모델을 ONNX로 변환해 FastAPI 분석 API를 구현했습니다.",
+    proof: "DeepSogak · ONNX 변환·분석 API 구현",
     href: "#project/deepsogak",
     index: "03",
     label: "MODEL / SERVICE",
@@ -199,29 +221,6 @@ export const skills = [
   ["Backend", ["Java", "Spring Boot", "FastAPI", "REST API", "PostgreSQL"]],
   ["Frontend", ["React", "TypeScript", "React Native"]],
   ["Cloud / Engineering", ["NCP", "Git", "GitHub", "CI", "Outbox Pattern"]],
-];
-
-export const otherProjects = [
-  {
-    name: "K-water 대청호 유해남조류 예측",
-    type: "시계열 모델링 · 본선 발표",
-    result: "위험 사례 Recall 1.0 · 기준 모델 대비 RMSE 약 18% 감소",
-    note: "팀의 시간 분할 검증 결과. 모델 후보 비교·평가·본선 발표를 담당했습니다.",
-    github: "https://github.com/Chunbae-A/model",
-  },
-  {
-    name: "AUTA",
-    type: "Figma 기반 UI/UX 자동 검증",
-    result: "React·TypeScript 클라이언트 구현 · 졸업작품 장려상",
-    note: "관련 기술 특허 공동발명·출원. 수상은 팀 성과입니다.",
-    github: "https://github.com/KW-AUTA/client",
-  },
-  {
-    name: "신용카드 리볼빙·현금서비스 예측",
-    type: "금융 데이터 분석",
-    result: "Macro F1 약 0.81",
-    note: "프로젝트 평가 기준의 분류 결과입니다.",
-  },
 ];
 
 export const workflow = [

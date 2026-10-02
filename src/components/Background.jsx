@@ -1,5 +1,5 @@
 import React from "react";
-import { experience, skills, otherProjects, profile } from "../data.mjs";
+import { experience, skills, profile } from "../data.mjs";
 import { SectionHeading, Tags, External, Arrow } from "./UI.jsx";
 export function Experience() {
   return (
@@ -52,35 +52,6 @@ export function Skills() {
               <span className="skill-number">0{i + 1}</span>
               <h3>{k}</h3>
               <Tags items={items} />
-            </article>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-export function OtherProjects() {
-  return (
-    <section id="other-projects" className="section other-section">
-      <div className="container">
-        <SectionHeading
-          number="05"
-          eyebrow="More work"
-          title="데이터 분석과 서비스 개발의 다른 경험"
-        />
-        <div className="other-list">
-          {otherProjects.map((p, i) => (
-            <article key={p.name}>
-              <span className="other-index">0{i + 1}</span>
-              <div>
-                <h3>{p.name}</h3>
-                <p>{p.type}</p>
-              </div>
-              <div>
-                <strong>{p.result}</strong>
-                <p>{p.note}</p>
-              </div>
-              {p.github && <External href={p.github}>GitHub</External>}
             </article>
           ))}
         </div>
