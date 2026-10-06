@@ -54,6 +54,3 @@ npm run preview
 
 AUTA의 [대시보드 개발 화면](https://github.com/user-attachments/assets/db751f8f-e5e8-41eb-9c50-03bab40a9bcd)은 본인이 구현한 [공개 PR #50](https://github.com/KW-AUTA/client/pull/50)에서 가져왔습니다. 현재 운영 화면이나 사용 실적을 나타내지 않습니다.
 
-## 구성 참고
-
-[김경민 포트폴리오](https://bckmini.github.io/)의 Projects와 상세 창 정보 구성(이미지 카드·개요·성과·아키텍처·기술 선택 이유)을 참고했습니다. 문안·프로젝트 사실·개인 기여는 최현준의 기존 자료를 바탕으로 별도 작성했습니다.
