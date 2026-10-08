@@ -554,7 +554,7 @@ function Skills() {
             {elements.map((s, i) => (
               <button
                 key={s.name}
-                className={`element rv-tile ${s.name === selected.name ? "inspected" : ""} ${filter !== "All" && filter !== s.family ? "dimmed" : ""}`}
+                className={`element ${s.name === selected.name ? "inspected" : ""} ${filter !== "All" && filter !== s.family ? "dimmed" : ""}`}
                 style={{ "--i": (Math.floor(i / 8) + (i % 8)) * 0.4 }}
                 onMouseEnter={() => setSelected(s)}
                 onFocus={() => setSelected(s)}

@@ -2114,3 +2114,26 @@ em {
     transform: none;
   }
 }
+
+/* Match the reference hero: lower-left role, lower-right actions. */
+@media (min-width: 761px) {
+  .hero { min-height: 100svh; padding-top: 110px; padding-bottom: 28px; }
+  .hero-stage { height: calc(100svh - 165px); min-height: 530px; max-height: 850px; }
+  .ghost-name { top: 13%; font-size: clamp(110px, 17vw, 260px); color: #e8e5df; -webkit-text-stroke: 0; }
+  .character-stage { left: 56%; height: 94%; width: 48%; }
+  .hero-side-left { top: auto; bottom: 205px; left: 0; }
+  .hero-side-left p { font-size: 14px; margin-top: 6px; }
+  .hero-side-left p span { display: inline; margin-left: 8px; }
+  .hero-side-right { top: auto; bottom: 190px; right: 0; }
+  .hero-side-right p { font-size: 12px; }
+  .hero-bottom { position: absolute; left: var(--gutter); right: var(--gutter); bottom: 28px; text-align: left; display: grid; grid-template-columns: 1fr auto; align-items: end; }
+  .hero-bottom h1 { font-size: clamp(42px, 5.6vw, 80px); max-width: 650px; line-height: 1.02; }
+  .hero-bottom h1 em { font-family: inherit; font-style: normal; color: inherit; }
+  .hero-actions { flex-wrap: wrap; max-width: 330px; justify-content: flex-end; margin-bottom: 34px; }
+  .scroll-cue { grid-column: 1/-1; margin-top: 22px; }
+}
+/* Stack tiles remain visible independently of animation observers. */
+.element { opacity: 1; }
+.element.dimmed { opacity: .32; }
+.element.inspected { background: var(--ink); color: white; }
+.element.inspected .atomic-number, .element.inspected .element-family { color: #d3d0ca; }
