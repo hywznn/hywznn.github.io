@@ -1,12 +1,12 @@
 # 최현준 · AI Service / Agent Developer
 
-**[포트폴리오 열기](https://hywznn.github.io/)**
+[포트폴리오 열기](https://hywznn.github.io/)
 
-FOWOCO, AUTA, 다음월급, DeepSogak, ChemiCheck119의 문제 발견·개인 기여·성과를 소개하는 한국어 포트폴리오입니다.
+사용자 제공 「TALKING-VIDEO PORTFOLIO」 가이드의 화면 구성과 상호작용을 최현준의 기존 프로젝트 자료로 개인화했습니다. 밝은 흑백 화면, 사진 기반 3D 캐릭터, 뒤집히는 사원증, 기술 주기율표, 프로젝트 아코디언과 가로 성과 갤러리를 사용합니다.
 
-## 기술과 실행
+## 실행과 배포
 
-React 19 · Vite 8 · React Bits. 서버나 DB 없이 GitHub Pages에 정적으로 배포합니다. 빌드 시 주요 페이지를 HTML로 미리 렌더링하여 JavaScript 로딩 전에도 개요와 대표 성과를 읽을 수 있습니다. 프로젝트 상세 창은 JavaScript로 열립니다.
+기존 React 19 / Vite 정적 구조를 유지합니다. 새 디자인은 CSS, IntersectionObserver와 작은 requestAnimationFrame 루프로 동작합니다. 로컬 폰트·로고를 사용하며 기존 상세 창은 필요할 때 불러옵니다.
 
 ```sh
 npm ci
@@ -15,42 +15,53 @@ npm run build
 npm run preview
 ```
 
-개발/미리보기 주소: `http://127.0.0.1:4173`. Node.js 22.12 이상 권장.
+Node.js 22.12 이상. 개발/미리보기는 `http://127.0.0.1:4173/`. `npm run build`는 정적 HTML을 렌더하고 `docs/`에 출력합니다. 소스와 `docs/`를 함께 push하면 GitHub Pages의 `main:/docs`에 게시됩니다.
+
+## 섹션
+
+| 순서 | 섹션 | 기능 |
+| --- | --- | --- |
+| Hero | 이름·직무·캐릭터 | 프로젝트·연락·포트폴리오 다운로드 |
+| About | 소개·사원증·기본 정보 | 클릭/Enter/Space로 뒤집기, 포인터에 따른 흔들림 |
+| Skills | 기술 주기율표 | 분류 필터, hover/focus/tap 상세 패널 |
+| Work | 5개 프로젝트 | 펼치기, 공개 화면, 상세 창·직접 링크 |
+| Certifications | ADsP·OPIc | 포커스/hover 색 반전 |
+| Experience | 학력·경험 | 스크롤에 반응하는 타임라인 |
+| Achievements | 검증 결과·팀 수상 | 데스크톱 가로 진행, 모바일 직접 스크롤 |
+| Contact | 이메일·공개 프로필 | 복사·연락·처음으로 |
 
 ## 수정 위치
 
-- `src/data.mjs`: 첫 화면 자기소개, 프로젝트, 기간, 역할, 성과, 경력, 기술 데이터
-- `src/summary-data.mjs`: 프로젝트 목록의 짧은 문제·해결·대표 결과
-- `src/project-details.mjs`: 프로젝트별 개인 기여·아키텍처·기술 선택 이유·추가 검증
-- `src/components/Hero.jsx`: 이름·개발자 정체성과 전공·교육·경험 소개
-- `src/components/Projects.jsx`: 서비스 이미지/흐름 카드와 상세 링크
-- `src/components/ProjectDialog.jsx`: 키보드·뒤로 가기·프로젝트 이동을 지원하는 상세 창
-- `src/components/Background.jsx`: 경력·기술·연락
-- `src/components/reactbits/`: React Bits 공식 소스와 제한적인 수정
-- `src/styles.css`: 기본 디자인·반응형·모션 감소 설정
-- `src/projects.css`: 프로젝트 카드·상세 창 디자인
-- `public/images/`: 공개 가능한 서비스 데모 이미지
-- `scripts/prerender.mjs`: React HTML 사전 렌더링
-- `docs/`: GitHub Pages 배포 결과
+- `src/TalkingPortfolio.jsx`: 전체 화면과 상호작용, 영상 설정
+- `src/talking.css`: 디자인·반응형·모션 감소 설정
+- `src/data.mjs`: 기존 프로필·프로젝트·기술·자격 자료
+- `src/project-details.mjs`: 프로젝트별 기여·구조·검증 조건
+- `src/components/ProjectDialog.jsx` / `src/projects.css`: 기존 상세 창
+- `public/hero/character.webp`: 생성된 본인 캐릭터
+- `public/portrait.webp`: 사용자 지정 화이트.jpg에서 만든 웹용 사진
+- `public/portfolio.pdf`: 기존 스토리형 포트폴리오 PDF (이력서와 별개)
+- `public/fonts/`, `public/logos/`: 로컬 폰트·브랜드 로고와 라이선스
 
-스크린샷을 교체하려면 `public/images`에 공개 가능한 이미지를 넣고 `src/data.mjs`의 해당 프로젝트 `image` 경로를 수정합니다. 실제 이름·문서·민감정보가 없는 화면만 사용합니다.
+프로젝트의 수치·설명·상세 근거는 기존 자료를 유지합니다. 새 경험이나 성과를 추가할 때에는 실제 기여·기간·평가 조건을 먼저 확인하세요. 다음월급 화면은 데모 시안, 다른 공개 개발 화면도 운영 성과와 구분합니다. 수상은 팀, 특허는 공동발명·출원이며 등록으로 표현하지 않습니다.
 
-수정 후 `npm run build`를 실행하고 소스와 `docs`를 함께 커밋·push하면 `main:/docs`로 배포됩니다.
+## 자기소개 영상
 
-## React Bits
+현재 첫 화면은 캐릭터 이미지입니다. 말하는 영상은 아직 생성하지 않았습니다. 가이드의 Google Flow 단계에는 외부 업로드와 기존 계정의 크레딧 사용이 필요합니다.
 
-공식 [React Bits](https://reactbits.dev/)의 **SpotlightCard**을 사용했습니다. 출처와 수정 내용은 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md), 전체 라이선스는 [licenses/REACT-BITS-LICENSE.md](licenses/REACT-BITS-LICENSE.md)에 보존했습니다.
+영상이 준비되면 `public/hero/hero.mp4`와 `hero.webm`을 넣고 `TalkingPortfolio.jsx`의 `heroVideo`를 `{ mp4: '/hero/hero.mp4', webm: '/hero/hero.webm' }`으로 설정합니다. 실제 영상이 있을 때에만 음성 버튼을 표시하며, 화면 노출이 35% 미만이면 영상·음성을 멈춥니다. 음성은 명시적 버튼 클릭으로 활성화합니다.
 
-제목과 모든 숫자는 처음부터 정적으로 표시합니다. 숫자 카운트업을 사용하지 않으며, 소개 카드의 hover 강조에 SpotlightCard를 사용합니다. 프로젝트 카드는 전체 영역에서 상세 창을 열 수 있고, 마우스를 올리면 소폭 확대됩니다. 키보드 포커스와 모션 감소 설정을 지원하며 GitHub는 별도의 새 탭 링크입니다. `#project/fowoco`처럼 프로젝트별 직접 링크를 지원합니다. 다음월급·DeepSogak의 표지는 각 서비스의 처리 흐름을 도식으로 보여줍니다.
+원본 생성 입력은 흰 배경, 정면, 전신, 고정 카메라, 짧은 자연스러운 제스처이며 다음 대사를 사용합니다.
 
-## 성과의 범위
+> 안녕하세요, AI 서비스와 에이전트를 개발하는 최현준입니다. 업무를 이해하고, 근거를 찾고, 서비스로 구현합니다.
 
-- FOWOCO 2→1은 동일 요청의 **Intent 분류 횟수**이며, 4/4는 **합성 문서 기반 로컬 E2E 대표 Case**의 Task 결과입니다.
-- AUTA는 **개인 클라이언트 구현**, **팀 장려상**, **관련 기술 특허 출원·공동발명**을 구분합니다. 기간은 공개 README의 개발 일정이며, 특허 등록 성과가 아닙니다.
-- 다음월급 31/31·20/20은 고정 평가셋의 **근거 회수·조건 변화 구조 검사**입니다.
-- DeepSogak은 **ONNX·FastAPI 분석 API와 팀 아이디어상**을 먼저 소개합니다. 보정 모델 적용 판단과 잠금 Test 수치는 상세에 별도로 보존합니다.
-- ChemiCheck119 32.46→89.74%는 **과거 사고 표현 419건의 재식별 평가**입니다. 새 표현 60건은 개선되지 않았고, 실제 현장 정확도로 일반화하지 않습니다.
-- 서비스 화면의 예시 건수와 팀 수상을 개인의 실사용 성과로 표현하지 않습니다.
+말과 입 모양이 맞는지 확인하고 잘린 대사가 없는 파일만 사용합니다. 무음 이미지 애니메이션을 말하는 영상처럼 표시하지 않습니다. 영상은 MP4(H.264/AAC)·WebM(VP9/Opus)로 제공하고, 모바일 크기와 네트워크 전송량을 점검합니다.
 
-AUTA의 [대시보드 개발 화면](https://github.com/user-attachments/assets/db751f8f-e5e8-41eb-9c50-03bab40a9bcd)은 본인이 구현한 [공개 PR #50](https://github.com/KW-AUTA/client/pull/50)에서 가져왔습니다. 현재 운영 화면이나 사용 실적을 나타내지 않습니다.
+## 출처와 라이선스
 
+디자인 구성: [TALKING-VIDEO PORTFOLIO](https://docs.google.com/document/d/13hWZsZ1OYhnY1iVPrT9bbuCLqGOeJ3zgqxfJ_6WOYr8/edit?tab=t.0). 문서의 예시 인물·경력은 사용하지 않습니다.
+
+Inter Tight, Instrument Serif, JetBrains Mono는 Google Fonts에서 받은 SIL Open Font License 폰트입니다. 라이선스는 `public/fonts/`에 보존합니다. 한글은 시스템 글꼴을 사용합니다. 브랜드 로고는 [Devicon](https://github.com/devicons/devicon) 공식 SVG이며 MIT 라이선스와 상표권 안내는 `public/logos/DEVICON-LICENSE.txt`에 있습니다. 로고 색상은 실제 브랜드 색을 유지합니다.
+
+캐릭터는 사용자 사진을 참고해 내장 이미지 생성 도구로 만들었습니다. 웹 코드와 새 디자인의 제작에는 AI 지원을 사용했습니다. 프로젝트 화면·개인 기여에 대한 원래 사실 경계와 별개입니다.
+
+기존 React Bits 소스·라이선스는 그대로 보존되어 있으나 새 메인 화면에서는 사용하지 않습니다. 기존 참고·공개 화면 출처는 `THIRD_PARTY_NOTICES.md`와 이전 Git 이력에 보존합니다.
