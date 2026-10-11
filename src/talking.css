@@ -2145,3 +2145,8 @@ em {
 .additional-work-grid h4 { font-size: 24px; margin: 14px 0; }
 .additional-work-grid p { font-size: 14px; line-height: 1.9; color: var(--ink-2); }
 @media(max-width:760px) { .additional-work-grid { grid-template-columns: 1fr; } }
+@media (max-width: 760px) {
+  .about-layout { grid-template-columns: minmax(0, 1fr); }
+  .about-layout > * { min-width: 0; }
+  .identity-card { max-width: calc(100% - 16px); }
+}
