@@ -1,6 +1,6 @@
 export const education = [
   {
-    "date": "2026.03.31 — 2026.09.03",
+    "date": "2026.03.31 ~ 2026.09.03",
     "title": "KT AIVLE School 9기 AI Track",
     "detail": "840시간 · Python 데이터 분석, 머신러닝·딥러닝, 생성형 AI·RAG·Agent, 웹서비스 개발과 팀 통합 프로젝트. 수료일은 2026.09.04입니다.",
     "tags": [
@@ -10,7 +10,7 @@ export const education = [
     ]
   },
   {
-    "date": "2020.03 — 2026.08",
+    "date": "2020.03 ~ 2026.08",
     "title": "광운대학교 정보융합학부 · 비주얼테크놀로지전공",
     "detail": "공학사 · GPA 3.87 / 4.5 · 135학점"
   }
@@ -64,7 +64,7 @@ export const projects = [
     "image": "/images/chemicheck-dashboard.png",
     "name": "ChemiCheck119",
     "category": "화학사고 현장 대응 지원 서비스",
-    "period": "2026.07.08 — 2026.10.05",
+    "period": "2026.07.08 ~ 2026.10.05",
     "role": "물질 검색 · AI API 계약 · GCP 배포",
     "headline": "신고 표현의 물질 검색을 개선하고, 확인된 조합만 검토하도록 구현했습니다.",
     "description": "화학사고 신고문에서 물질 후보를 찾아 대응 검토를 돕는 서비스입니다. 담당자가 두 물질을 확인하면 해당 조합의 공식 대응 규칙을 조회합니다.",
@@ -114,7 +114,7 @@ export const projects = [
     "id": "fowoco",
     "name": "FOWOCO",
     "category": "외국인 근로자 행정업무 AI Agent",
-    "period": "2026.06.29 — 2026.08.21",
+    "period": "2026.06.29 ~ 2026.08.21",
     "role": "TPM · 업무 설계 · 서버 통합",
     "headline": "행정 절차를 분석해, 승인과 증빙이 남는 업무형 Agent를 구현했습니다.",
     "description": "E-9 근로자의 재계약·취업활동기간 연장·체류기간 연장 준비를 돕습니다. 인사 담당자가 서류와 진행 상태를 확인하고, 승인한 업무를 이어갈 수 있습니다.",
@@ -166,7 +166,7 @@ export const projects = [
     "imageLabel": "직접 구현한 대시보드 · 개발 화면",
     "name": "AUTA",
     "category": "Figma 기반 UI/UX 자동 검증 서비스",
-    "period": "2025.03.02 — 2025.12.31",
+    "period": "2025.03.02 ~ 2025.12.31",
     "role": "Frontend · React / TypeScript",
     "headline": "디자인 검증을 요청하고 진행 현황을 확인하는 클라이언트를 구현했습니다.",
     "description": "Figma 디자인과 구현된 웹 화면을 비교하는 UI/UX 자동 검증 서비스입니다. 설계 자료를 등록하고 프로젝트별 검증 현황을 확인합니다.",
@@ -204,7 +204,7 @@ export const projects = [
     "id": "deepsogak",
     "name": "DeepSogak",
     "category": "AI 합성물 피해 지원 서비스",
-    "period": "2026.07 — 2026.08",
+    "period": "2026.07 ~ 2026.08",
     "role": "모델 검증 · ONNX 변환 · FastAPI",
     "headline": "동일인 확인과 합성물 분석을 서비스에서 호출할 수 있도록 구현했습니다.",
     "description": "공개된 얼굴 후보를 확인하고 AI 합성물 분석 정보를 제공하는 피해 지원 프로토타입입니다. 동일인 여부와 합성 여부를 단계별로 구분합니다.",
@@ -250,7 +250,7 @@ export const projects = [
     "imageLabel": "본인 구현 구조 요약",
     "name": "다음월급",
     "category": "연금 의사결정 지원 AI Agent",
-    "period": "2026.08.30 재설계 — 2026.09.06 예선 제출",
+    "period": "2026.08.30 재설계 ~ 2026.09.06 예선 제출",
     "role": "1인 주도 개발 · RAG · FastAPI · NCP",
     "headline": "질문에 필요한 근거를 찾고, 조건에 맞춰 설명하는 연금 Agent를 개발했습니다.",
     "description": "계좌 종류와 수령 시점에 따라 달라지는 연금 질문에 근거와 확인할 조건을 제시합니다. 검색·조건 검증은 코드가, 검증된 내용의 설명은 LLM이 담당합니다.",

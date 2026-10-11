@@ -294,8 +294,8 @@ function Hero() {
         <div className="character-stage">
           <img
             className="hero-character"
-            src="/hero/character.webp"
-            alt="흰 셔츠와 검정 바지를 입은 최현준의 3D 캐릭터"
+            src="/hero/character-suit.webp"
+            alt="증명사진의 검정 정장과 남색 줄무늬 넥타이를 착용한 최현준의 3D 캐릭터"
             fetchPriority="high"
           />
           {heroVideo && (
@@ -675,8 +675,8 @@ function Work() {
         <div className="additional-work">
           <h3>More projects & practice</h3>
           <div className="additional-work-grid">
-            <article><span className="tiny-label">2025.06 — 2025.08 · WEB</span><h4>Banddy</h4><p>음악 취향·악기 세션 기반 밴드 탐색·모집 PWA. React·TypeScript 화면과 API, STOMP·SockJS의 연결·재연결·중복 구독 방지와 읽음 처리를 구현했습니다. AWS S3·CloudFront·Route 53 배포와 GitHub Actions를 구성하고, 데모 계정 간 채팅을 시연했습니다.</p></article>
-            <article><span className="tiny-label">2025.07 — 2025.12 · MOBILE</span><h4>Hanibi</h4><p>음식물 처리기 연동 React Native 앱. 기기 페어링과 센서 모니터링을 구현하고 누락·NaN·오류 값을 정규화했습니다. 429 응답에 대응해 조회 주기와 캐시, 화면·장비 상태별 조건부 요청을 조정했습니다.</p></article>
+            <article><span className="tiny-label">2025.06 ~ 2025.08 · WEB</span><h4>Banddy</h4><p>음악 취향·악기 세션 기반 밴드 탐색·모집 PWA. React·TypeScript 화면과 API, STOMP·SockJS의 연결·재연결·중복 구독 방지와 읽음 처리를 구현했습니다. AWS S3·CloudFront·Route 53 배포와 GitHub Actions를 구성하고, 데모 계정 간 채팅을 시연했습니다.</p></article>
+            <article><span className="tiny-label">2025.07 ~ 2025.12 · MOBILE</span><h4>Hanibi</h4><p>음식물 처리기 연동 React Native 앱. 기기 페어링과 센서 모니터링을 구현하고 누락·NaN·오류 값을 정규화했습니다. 429 응답에 대응해 조회 주기와 캐시, 화면·장비 상태별 조건부 요청을 조정했습니다.</p></article>
             <article><span className="tiny-label">AX IDEA COMPETITION · DATA</span><h4>대청호 유해 남조류 예측</h4><p>7일 예측 기반 조류경보 사전점검 시나리오의 모델링과 본선 발표를 맡았습니다. 시간 기반 학습·검증 분할로 LightGBM·XGBoost·HistGradientBoosting을 비교하고 RMSE·Recall로 모델을 선택했습니다.</p></article>
           </div>
         </div>
@@ -721,18 +721,18 @@ function Experience() {
   const timeline = [
     education[1],
     {
-      date: "2025.09.01 — 2026.02.28",
+      date: "2025.09.01 ~ 2026.02.28",
       title: "광운대학교 교육대학원 · 행정조교",
       detail:
         "공식 학사정보와 안내 챗봇 답변을 교차 검증하고, Excel 기반 등록금·필수교육 데이터를 관리했습니다. 10개 전공의 문의 응대와 학사행사 운영을 지원했습니다.",
     },
     education[0],
-    { date: "2023.09.14 — 2025.08.23", title: "UMC · Web 파트장 / 부회장", detail: "7기 Web 파트장과 8기 부회장으로 활동했습니다. 사이드 프로젝트·데모데이 4회에 참여하고, 저장소·과제 제출 가이드와 개발환경 안내를 작성했습니다." },
+    { date: "2023.09.14 ~ 2025.08.23", title: "UMC · Web 파트장 / 부회장", detail: "7기 Web 파트장과 8기 부회장으로 활동했습니다. 사이드 프로젝트·데모데이 4회에 참여하고, 저장소·과제 제출 가이드와 개발환경 안내를 작성했습니다." },
     { date: "총 14회 참여", title: "소원 SW 교육봉사 · 유스해커톤", detail: "초·중학생과 장애인 학습자의 코딩 실습을 주강사·보조강사로 지원했습니다. MODI·App Inventor의 조건문·반복문·센서 제어를 함께 실습하고, 스스로 다시 구현할 수 있도록 설명과 피드백을 제공했습니다." },
-    { date: "2026.03.03 — 2026.05.29 · 18시간", title: "웨어러블 로봇 시장 분석과 제품 개발 기획", detail: "비즈니스 모델과 산업 환경, 시장성·기술성·경제성·위험성을 분석하고 제품 기획과 기술사업화 전략을 학습했습니다." },
-    { date: "2024.09.02 — 2024.11.03 · 13시간", title: "생체데이터와 인공지능의 이해", detail: "바이오센서 데이터 수집, ECG·EMG·PPG·뇌파의 측정 원리와 푸리에 변환 기반 주파수 분석을 학습했습니다." },
+    { date: "2026.03.03 ~ 2026.05.29 · 18시간", title: "웨어러블 로봇 시장 분석과 제품 개발 기획", detail: "비즈니스 모델과 산업 환경, 시장성·기술성·경제성·위험성을 분석하고 제품 기획과 기술사업화 전략을 학습했습니다." },
+    { date: "2024.09.02 ~ 2024.11.03 · 13시간", title: "생체데이터와 인공지능의 이해", detail: "바이오센서 데이터 수집, ECG·EMG·PPG·뇌파의 측정 원리와 푸리에 변환 기반 주파수 분석을 학습했습니다." },
     {
-      date: "2025.08.30 — 현재 (2026.10 기준)",
+      date: "2025.08.30 ~ 현재 (2026.10 기준)",
       title: "디랩코딩학원 구월점 · 코딩 강사",
       detail:
         "프리랜서 코딩 강사로 Python/Pygame·Java·Unity 2D·HTML/CSS를 지도했습니다. Unity·C# 기초 11주와 모바일 게임 제작 11주의 교육과정을 설계하고, 직접 구현한 게임·주차별 교안·앨리스코딩 콘텐츠를 실제 수업에 적용했습니다.",
