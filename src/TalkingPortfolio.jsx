@@ -11,10 +11,9 @@ import "./talking.css";
 const ProjectDialog = lazy(() => import("./components/ProjectDialog.jsx"));
 const nav = [
   ["about", "About"],
-  ["skills", "Skills"],
   ["projects", "Work"],
+  ["skills", "Skills"],
   ["experience", "Experience"],
-  ["achievements", "Achievements"],
   ["contact", "Contact"],
 ];
 const linkedIn = "https://www.linkedin.com/in/hywznn";
@@ -285,7 +284,7 @@ function Hero() {
   return (
     <section id="top" className="hero" ref={section}>
       <div className="hero-meta">
-        <span>AI SERVICE / AGENT DEVELOPER</span>
+        <span>AI SERVICE DEVELOPER</span>
         <span>CHOI HYUNJUN · PORTFOLIO</span>
       </div>
       <div className="hero-stage">
@@ -318,14 +317,14 @@ function Hero() {
         <div className="hero-side hero-side-left">
           <span className="tiny-label">HELLO, I'M</span>
           <p>
-            최현준<span>Choi Hyunjun</span>
+            최현준<span>AI 서비스 개발자</span>
           </p>
         </div>
         <div className="hero-side hero-side-right">
           <p>
-            업무를 이해하고,
+            AI의 결과를 검증하고,
             <br />
-            AI를 서비스로 연결합니다.
+            서비스로 연결합니다.
           </p>
           <a href="#about">
             조금 더 알아보기 <span aria-hidden="true">↓</span>
@@ -347,7 +346,7 @@ function Hero() {
       <div className="hero-bottom">
         <h1>
           AI Service
-          <br />& Agent <em>Developer.</em>
+          <br /><em>Developer.</em>
         </h1>
         <div className="hero-actions">
           <a className="pill solid" href="#projects">
@@ -422,7 +421,7 @@ function IdentityCard() {
               />
             </span>
             <strong>최현준</strong>
-            <span className="id-role">AI Service / Agent Developer</span>
+            <span className="id-role">AI Service Developer</span>
             <span className="id-rows">
               <span>
                 <small>NAME</small>CHOI HYUNJUN
@@ -445,7 +444,7 @@ function IdentityCard() {
             </span>
             <span className="back-copy">
               <strong>설계에서 구현까지.</strong>
-              <span>업무형 AI Agent</span>
+              <span>AI 기능 · 업무 흐름</span>
               <span>근거 검색과 검증</span>
               <span>웹 클라이언트 · 분석 API</span>
               <span>광운대학교 정보융합학</span>
@@ -471,9 +470,9 @@ function About() {
           <div className="about-copy rv">
             <p className="tiny-label">안녕하세요, 최현준입니다.</p>
             <h3>
-              업무를 분석하고,
+              AI의 결과를 검증하고,
               <br />
-              서비스로 구현합니다.
+              사용자가 쓸 수 있게 연결합니다.
             </h3>
             <p>{profile.description}</p>
             <p>
@@ -503,7 +502,7 @@ function About() {
               </div>
               <div>
                 <dt>관심 분야</dt>
-                <dd>AI 서비스 · Agent 개발</dd>
+                <dd>AI 서비스 · 검색·모델 검증</dd>
               </div>
               <div>
                 <dt>이메일</dt>
@@ -529,9 +528,14 @@ function Skills() {
   return (
     <section id="skills" className="section">
       <div className="container">
-        <Heading number="02" label="MY STACK" accent="stack.">
+        <Heading number="03" label="MY STACK" accent="stack.">
           The periodic table of my
         </Heading>
+        <div className="capability-strip">
+          <a href="#project/nextsalary"><strong>검색 · RAG</strong><span>검색 누락과 오답 원인 분석 · 조건·출처 검증</span></a>
+          <a href="#project/deepsogak"><strong>모델 검증 · 추론 API</strong><span>적용 기준 확인 · ONNX · FastAPI</span></a>
+          <a href="#project/fowoco"><strong>백엔드 · 서비스 연결</strong><span>승인 · 재처리 · 이력 추적 · 배포</span></a>
+        </div>
         <div className="family-filters" aria-label="기술 분류">
           {["All", ...skills.map((g) => g.category)].map((f) => (
             <button
@@ -587,11 +591,11 @@ function Work() {
   return (
     <section id="projects" className="section work-section">
       <div className="container">
-        <Heading number="03" label="SELECTED WORK" accent="built.">
+        <Heading number="02" label="SELECTED WORK" accent="built.">
           Things I've
         </Heading>
         <div className="work-gallery">
-          {projects.map((p, i) => (
+          {["chemicheck119", "deepsogak", "fowoco"].map((id) => projects.find((p) => p.id === id)).map((p, i) => (
             <article
               key={p.id}
               className={`work-panel ${active === i ? "expanded" : ""}`}
@@ -638,7 +642,7 @@ function Work() {
                     </div>
                   </div>
                   <ul className="work-tech" aria-label="사용 기술">
-                    {p.tech.slice(0, 5).map((t) => (
+                    {({chemicheck119: ["Python", "scikit-learn", "FastAPI", "Spring Boot", "GCP Cloud Run"], deepsogak: ["PyTorch", "ONNX", "FastAPI"], fowoco: ["Java", "Spring Boot", "PostgreSQL", "FastAPI"]}[p.id] || p.tech).map((t) => (
                       <li key={t}>
                         <Logo name={t} />
                         {t}
@@ -673,14 +677,14 @@ function Work() {
             </article>
           ))}
         </div>
-        <div className="additional-work">
-          <h3>More projects & practice</h3>
+        <details className="additional-work supporting-work">
+          <summary>보조 프로젝트 · RAG, 웹 구현과 데이터 분석</summary>
           <div className="additional-work-grid">
-            <article><span className="tiny-label">2025.06 ~ 2025.08 · WEB</span><h4>Banddy</h4><p>음악 취향·악기 세션 기반 밴드 탐색·모집 PWA. React·TypeScript 화면과 API, STOMP·SockJS의 연결·재연결·중복 구독 방지와 읽음 처리를 구현했습니다. AWS S3·CloudFront·Route 53 배포와 GitHub Actions를 구성하고, 데모 계정 간 채팅을 시연했습니다.</p></article>
-            <article><span className="tiny-label">2025.07 ~ 2025.12 · MOBILE</span><h4>Hanibi</h4><p>음식물 처리기 연동 React Native 앱. 기기 페어링과 센서 모니터링을 구현하고 누락·NaN·오류 값을 정규화했습니다. 429 응답에 대응해 조회 주기와 캐시, 화면·장비 상태별 조건부 요청을 조정했습니다.</p></article>
-            <article><span className="tiny-label">AX IDEA COMPETITION · DATA</span><h4>대청호 유해 남조류 예측</h4><p>7일 예측 기반 조류경보 사전점검 시나리오의 모델링과 본선 발표를 맡았습니다. 시간 기반 학습·검증 분할로 LightGBM·XGBoost·HistGradientBoosting을 비교하고 RMSE·Recall로 모델을 선택했습니다.</p></article>
+            {['nextsalary', 'auta'].map(id => { const p = projects.find(p => p.id === id); return <article key={id}><span className="tiny-label">{p.period}</span><h4>{p.name}</h4><p>{p.cardContribution}</p><p className="support-result">{p.cardResult.value} · {p.cardResult.note}</p><a href={`#project/${id}`}>구현 과정 보기 ↗</a></article>; })}
+            <article><span className="tiny-label">DATA ANALYSIS</span><h4>대청호 유해 남조류 예측</h4><p>시간 기반 학습·검증 분할로 예측 모델을 비교하고 RMSE·Recall로 모델을 선택했습니다. 모델링과 본선 발표를 맡았습니다.</p></article>
+            <article><span className="tiny-label">WEB · MOBILE</span><h4>Banddy · Hanibi</h4><p>Banddy에서는 채팅 연결·재연결과 웹 배포를, Hanibi에서는 기기 페어링·센서 모니터링과 오류 응답 처리를 구현했습니다.</p><a href="https://github.com/hanibi-app/client" target="_blank" rel="noopener noreferrer">Hanibi GitHub ↗</a></article>
           </div>
-        </div>
+        </details>
         <p className="gallery-note">
           프로젝트를 선택해 살펴보세요. 상세 페이지에 구현 과정과 검증 조건을
           정리했습니다.
@@ -689,55 +693,12 @@ function Work() {
     </section>
   );
 }
-function Certifications() {
-  return (
-    <section id="certifications" className="section certificates">
-      <div className="container certificates-layout">
-        <div>
-          <Heading number="04" label="CERTIFICATIONS" accent="learning.">
-            Always
-          </Heading>
-          <p className="tiny-label">
-            {qualifications.length} CERTIFICATIONS & LANGUAGE
-          </p>
-        </div>
-        <ol className="cert-list">
-          {qualifications.map((q, i) => (
-            <li key={q.title} tabIndex="0">
-              <span className="cert-index">0{i + 1}</span>
-              <div>
-                <h3>{q.title}</h3>
-                <p>{q.detail}</p>
-              </div>
-              <time>{q.date}</time>
-              <span aria-hidden="true">↗</span>
-            </li>
-          ))}
-        </ol>
-      </div>
-    </section>
-  );
-}
 function Experience() {
   const timeline = [
-    education[1],
-    {
-      date: "2025.09.01 ~ 2026.02.28",
-      title: "광운대학교 교육대학원 · 행정조교",
-      detail:
-        "공식 학사정보와 안내 챗봇 답변을 교차 검증하고, Excel 기반 등록금·필수교육 데이터를 관리했습니다. 10개 전공의 문의 응대와 학사행사 운영을 지원했습니다.",
-    },
-    education[0],
-    { date: "2023.09.14 ~ 2025.08.23", title: "UMC · Web 파트장 / 부회장", detail: "7기 Web 파트장과 8기 부회장으로 활동했습니다. 사이드 프로젝트·데모데이 4회에 참여하고, 저장소·과제 제출 가이드와 개발환경 안내를 작성했습니다." },
-    { date: "총 14회 참여", title: "소원 SW 교육봉사 · 유스해커톤", detail: "초·중학생과 장애인 학습자의 코딩 실습을 주강사·보조강사로 지원했습니다. MODI·App Inventor의 조건문·반복문·센서 제어를 함께 실습하고, 스스로 다시 구현할 수 있도록 설명과 피드백을 제공했습니다." },
-    { date: "2026.03.03 ~ 2026.05.29 · 18시간", title: "웨어러블 로봇 시장 분석과 제품 개발 기획", detail: "비즈니스 모델과 산업 환경, 시장성·기술성·경제성·위험성을 분석하고 제품 기획과 기술사업화 전략을 학습했습니다." },
-    { date: "2024.09.02 ~ 2024.11.03 · 13시간", title: "생체데이터와 인공지능의 이해", detail: "바이오센서 데이터 수집, ECG·EMG·PPG·뇌파의 측정 원리와 푸리에 변환 기반 주파수 분석을 학습했습니다." },
-    {
-      date: "2025.08.30 ~ 현재 (2026.10 기준)",
-      title: "디랩코딩학원 구월점 · 코딩 강사",
-      detail:
-        "프리랜서 코딩 강사로 Python/Pygame·Java·Unity 2D·HTML/CSS를 지도했습니다. Unity·C# 기초 11주와 모바일 게임 제작 11주의 교육과정을 설계하고, 직접 구현한 게임·주차별 교안·앨리스코딩 콘텐츠를 실제 수업에 적용했습니다.",
-    },
+    { date: "2025.08.30 ~ 현재 (2026.10 기준)", title: "디랩코딩학원 구월점 · 코딩 강사", detail: "Python·Java·Unity 2D·웹 기초를 지도했습니다. Unity·C# 기초와 모바일 게임 제작의 22주 교육과정을 설계하고, 직접 구현한 게임과 교안을 수업에 적용했습니다." },
+    { date: "2025.09.01 ~ 2026.02.28", title: "광운대학교 교육대학원 · 행정조교", detail: "학사정보와 안내 챗봇 답변을 교차 검증하고, 등록금·필수교육 데이터를 관리했습니다. 10개 전공의 문의 응대와 학사행사를 지원했습니다." },
+    { date: "2023.09.14 ~ 2025.08.23", title: "UMC · Web 파트장 / 부회장", detail: "Web 파트장과 부회장으로 활동하며 저장소·과제 제출 가이드와 개발환경 안내를 작성했습니다. 사이드 프로젝트·데모데이 4회에 참여했습니다." },
+    { date: "총 14회 참여", title: "소원 SW 교육봉사 · 유스해커톤", detail: "초·중학생과 장애인 학습자의 코딩 실습을 주강사·보조강사로 지원했습니다." },
   ];
   const ref = useRef(null),
     line = useRef(null);
@@ -758,8 +719,8 @@ function Experience() {
   return (
     <section id="experience" className="section">
       <div className="container experience-layout">
-        <Heading number="05" label="THE JOURNEY" accent="path.">
-          Learning along the
+        <Heading number="04" label="EXPERIENCE" accent="together.">
+          Building & learning
         </Heading>
         <div className="journey" ref={ref}>
           <div className="journey-fill" ref={line} />
@@ -784,96 +745,11 @@ function Experience() {
             <a href="#contact">함께할 이야기를 기다립니다. ↗</a>
           </div>
         </div>
-      </div>
-    </section>
-  );
-}
-function Achievements() {
-  const ref = useRef(null),
-    track = useRef(null),
-    bar = useRef(null);
-  const [travel, setTravel] = useState(0);
-  useEffect(() => {
-    let frame = 0;
-    const measure = () => {
-      if (
-        window.matchMedia("(max-width:760px), (prefers-reduced-motion: reduce)")
-          .matches
-      ) {
-        setTravel(0);
-        return;
-      }
-      const width = track.current?.scrollWidth || 0;
-      setTravel(Math.max(0, width - (track.current?.clientWidth || 0)));
-    };
-    const update = () => {
-      if (frame) return;
-      frame = requestAnimationFrame(() => {
-        frame = 0;
-        if (!ref.current || !track.current) return;
-        const b = ref.current.getBoundingClientRect();
-        const max = Math.max(0, b.height - window.innerHeight);
-        const progress = max > 0 ? Math.max(0, Math.min(1, -b.top / max)) : 0;
-        track.current.style.setProperty("--travel", `${progress * travel}px`);
-        bar.current?.style.setProperty("--progress", progress);
-      });
-    };
-    measure();
-    window.addEventListener("resize", measure);
-    window.addEventListener("scroll", update, { passive: true });
-    return () => {
-      window.removeEventListener("resize", measure);
-      window.removeEventListener("scroll", update);
-      cancelAnimationFrame(frame);
-    };
-  }, [travel]);
-  const items = profile.achievements;
-  return (
-    <section
-      id="achievements"
-      ref={ref}
-      className="achievements-section"
-      style={{ "--distance": `${travel}px` }}
-    >
-      <div className="achievements-sticky">
-        <div className="container">
-          <Heading number="06" label="MILESTONES" accent="way.">
-            A few things along the
-          </Heading>
-          <div className="achievement-progress" ref={bar} />
-          <div className="achievement-window">
-            <div className="achievement-track" ref={track}>
-              {items.map((a, i) => (
-                <a
-                  className="achievement-card"
-                  href={`#project/${a.id}`}
-                  aria-haspopup="dialog"
-                  key={a.id}
-                >
-                  <div className="achievement-card-top">
-                    <span className="achievement-monogram">
-                      {i === 0 ? "₩" : i === 1 ? "A" : "D"}
-                    </span>
-                    <span className="tiny-label">0{i + 1} / 03</span>
-                  </div>
-                  <div className="achievement-copy">
-                    <p className="tiny-label">
-                      {a.project} · {a.contribution}
-                    </p>
-                    <h3>{a.result}</h3>
-                    <p>{a.context.join(" · ")}</p>
-                  </div>
-                  <span className="achievement-open" aria-hidden="true">
-                    ↗
-                  </span>
-                </a>
-              ))}
-              <div className="achievement-end">
-                <em>and counting.</em>
-                <a href="#projects">프로젝트 더 보기 ↗</a>
-              </div>
-            </div>
-          </div>
+        <div className="education-summary">
+          <h3>학력 · 교육</h3>
+          {education.map(e => <article key={e.title}><time>{e.date}</time><h4>{e.title}</h4><p>{e.detail}</p></article>)}
+          <p className="compact-qualification">ADsP · 데이터분석 준전문가 (2025.11)</p>
+          <details><summary>어학 자격 보기</summary>{qualifications.slice(1).map(q => <p key={q.title}>{q.title} · {q.date}</p>)}</details>
         </div>
       </div>
     </section>
@@ -885,7 +761,7 @@ function Contact() {
     <>
       <section id="contact" className="section contact-section">
         <div className="container">
-          <p className="eyebrow rv">07 — SAY HELLO</p>
+          <p className="eyebrow rv">05 — SAY HELLO</p>
           <h2
             className="contact-heading"
             aria-label="Let’s build something together."
@@ -977,11 +853,9 @@ export default function TalkingPortfolio() {
       <main id="main">
         <Hero />
         <About />
-        <Skills />
         <Work />
-        <Certifications />
+        <Skills />
         <Experience />
-        <Achievements />
         <Contact />
       </main>
       {i >= 0 && (

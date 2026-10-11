@@ -2150,3 +2150,30 @@ em {
   .about-layout > * { min-width: 0; }
   .identity-card { max-width: calc(100% - 16px); }
 }
+
+/* Position the portfolio around demonstrated AI service implementation. */
+.capability-strip { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:20px; margin:28px 0 36px; }
+.capability-strip a { border-top:1px solid var(--line); padding:20px 0; display:flex; flex-direction:column; gap:8px; }
+.capability-strip strong { font-size:18px; }
+.capability-strip span { color:var(--mute); font-size:13px; line-height:1.6; }
+.supporting-work summary { cursor:pointer; font-size:20px; font-weight:600; padding:24px 0; }
+.supporting-work .additional-work-grid { margin-top:12px; }
+.supporting-work article a { display:inline-block; margin-top:16px; text-decoration:underline; font-size:13px; }
+.support-result { font-size:12px!important; color:var(--mute); }
+.education-summary { grid-column:2; border-top:1px solid var(--line); padding-top:32px; margin-top:32px; }
+.education-summary > h3 { font-size:22px; margin-bottom:24px; }
+.education-summary article { margin-bottom:24px; }
+.education-summary time { color:var(--mute); font-size:12px; }
+.education-summary h4 { margin:8px 0; font-size:17px; }
+.education-summary p { font-size:14px; line-height:1.8; color:var(--mute); }
+.education-summary details { margin-top:18px; }
+.education-summary summary { cursor:pointer; font-size:14px; }
+@media(max-width:760px) {
+  .capability-strip { grid-template-columns:1fr; gap:0; }
+  .education-summary { grid-column:1; }
+  .hero-stage { height:clamp(285px,53svh,420px); }
+  .hero-side-left p span { font-size:11px; }
+  .hero-side-right { max-width:140px; }
+  .hero-bottom h1 { font-size:clamp(32px,8vw,54px); }
+  .hero-actions { margin-top:16px; }
+}

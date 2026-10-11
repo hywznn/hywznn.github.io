@@ -18,15 +18,15 @@ export const education = [
 
 export const profile = {
   "name": "최현준",
-  "role": "AI Service / Agent Developer",
+  "role": "AI Service Developer",
   "email": "choi.hyunjun@outlook.com",
   "github": "https://github.com/hywznn",
   "headline": [
-    "업무를 분석해 AI Agent를 설계하고,",
-    "서비스 구현까지 맡은",
+    "AI의 결과를 검증하고,",
+    "사용자가 쓸 수 있는 서비스로 연결하는",
     "개발자 최현준입니다."
   ],
-  "description": "화학사고 대응 지원 서비스 Chemicheck119에서 물질 검색의 오답 원인을 분석하고 API 연동·클라우드 배포를 맡았습니다. FOWOCO에서는 복잡한 행정업무를 워크플로우와 API 계약으로 정리하고, 승인·재처리·이력 추적이 가능한 서버를 구현했습니다.",
+  "description": "검색의 오답 원인을 분석하고, 모델 추론 API와 승인·재처리 흐름을 구현했습니다. Python·FastAPI와 Spring Boot로 AI 기능을 웹서비스에 연결하고 클라우드에 배포한 경험이 있습니다.",
   "achievements": [
     {
       "id": "chemicheck119",
@@ -105,7 +105,7 @@ export const projects = [
     "cardResult": {
       "value": "32.46% → 89.74%",
       "label": "물질 후보 Top-1 일치율",
-      "note": "2020년 울산 사고 표현 419건 재식별 평가"
+      "note": "기존 419건 재식별 평가 · 신규 표현 60건에서는 개선 없음"
     },
     "logo": "/images/chemicheck-logo.png",
     "imageLabel": "합성 지령을 사용하는 공개 데모"
@@ -289,6 +289,10 @@ export const projects = [
     }
   }
 ];
+
+// Keep detail navigation aligned with featured and supporting project order.
+const projectOrder = ["chemicheck119", "deepsogak", "fowoco", "nextsalary", "auta"];
+projects.sort((a, b) => projectOrder.indexOf(a.id) - projectOrder.indexOf(b.id));
 
 export const qualifications = [
   {
