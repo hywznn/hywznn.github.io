@@ -102,6 +102,7 @@ const elements = skills
       }),
     ),
   )
+  .filter((s) => Boolean(logoMap[s.name]))
   .map((s, i) => ({
     ...s,
     number: i + 1,
