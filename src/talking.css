@@ -2137,3 +2137,11 @@ em {
 .element.dimmed { opacity: .32; }
 .element.inspected { background: var(--ink); color: white; }
 .element.inspected .atomic-number, .element.inspected .element-family { color: #d3d0ca; }
+
+.additional-work { margin-top: 60px; }
+.additional-work > h3 { font-size: 28px; margin-bottom: 24px; }
+.additional-work-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 24px; }
+.additional-work-grid article { border-top: 1px solid var(--line); padding-top: 22px; }
+.additional-work-grid h4 { font-size: 24px; margin: 14px 0; }
+.additional-work-grid p { font-size: 14px; line-height: 1.9; color: var(--ink-2); }
+@media(max-width:760px) { .additional-work-grid { grid-template-columns: 1fr; } }

@@ -1,8 +1,8 @@
 export const education = [
   {
-    "date": "2026.03 — 2026.09",
+    "date": "2026.03.31 — 2026.09.03",
     "title": "KT AIVLE School 9기 AI Track",
-    "detail": "AI·ML·Deep Learning 기초에서 LLMOps·생성형 AI, LangGraph 미니프로젝트를 거쳐 FOWOCO 업무형 Agent의 통합·검증까지 확장했습니다.",
+    "detail": "840시간 · Python 데이터 분석, 머신러닝·딥러닝, 생성형 AI·RAG·Agent, 웹서비스 개발과 팀 통합 프로젝트. 수료일은 2026.09.04입니다.",
     "tags": [
       "AI·데이터 학습",
       "LangGraph 미니프로젝트",
@@ -11,8 +11,8 @@ export const education = [
   },
   {
     "date": "2020.03 — 2026.08",
-    "title": "광운대학교 정보융합학 전공",
-    "detail": "GPA 3.87 / 4.5 · 학사 졸업"
+    "title": "광운대학교 정보융합학부 · 비주얼테크놀로지전공",
+    "detail": "공학사 · GPA 3.87 / 4.5 · 135학점"
   }
 ];
 
@@ -26,15 +26,15 @@ export const profile = {
     "서비스 구현까지 맡은",
     "개발자 최현준입니다."
   ],
-  "description": "FOWOCO에서는 현업 조사로 확인한 행정업무 부담을 바탕으로 Agent의 처리 절차를 설계하고 서버 통합을 맡았습니다. 다음월급에서는 검색 누락을 개선해 고정 평가 31문항 모두의 필요 근거를 상위 5개 결과에 포함시켰습니다.",
+  "description": "화학사고 대응 지원 서비스 Chemicheck119에서 물질 검색의 오답 원인을 분석하고 API 연동·클라우드 배포를 맡았습니다. FOWOCO에서는 복잡한 행정업무를 워크플로우와 API 계약으로 정리하고, 승인·재처리·이력 추적이 가능한 서버를 구현했습니다.",
   "achievements": [
     {
-      "id": "nextsalary",
-      "project": "다음월급",
-      "contribution": "검색 구조 개선",
-      "result": "31 / 31",
+      "id": "chemicheck119",
+      "project": "Chemicheck119",
+      "contribution": "물질 검색 개선",
+      "result": "+57.28%p",
       "context": [
-        "고정 평가 질문의 필요 근거 Top-5 검색"
+        "2020년 울산 사고 표현 419건 · Top-1 32.46% → 89.74%"
       ]
     },
     {
@@ -60,10 +60,61 @@ export const profile = {
 
 export const projects = [
   {
+    "id": "chemicheck119",
+    "image": "/images/chemicheck-dashboard.png",
+    "name": "ChemiCheck119",
+    "category": "화학사고 현장 대응 지원 서비스",
+    "period": "2026.07.08 — 2026.10.05",
+    "role": "물질 검색 · AI API 계약 · GCP 배포",
+    "headline": "신고 표현의 물질 검색을 개선하고, 확인된 조합만 검토하도록 구현했습니다.",
+    "description": "화학사고 신고문에서 물질 후보를 찾아 대응 검토를 돕는 서비스입니다. 담당자가 두 물질을 확인하면 해당 조합의 공식 대응 규칙을 조회합니다.",
+    "problem": "표준명 중심 검색은 별칭·오탈자를 놓쳤고, 기본 카탈로그 밖 물질은 후보에도 나오지 않았습니다.",
+    "action": "문자 2~5-gram TF-IDF에 현장 별칭을 보강하고, 카탈로그 밖 후보는 정확히 일치할 때만 추가했습니다. 두 CAS의 확인 상태를 API 계약으로 연결했습니다.",
+    "result": "과거 사고 표현 419건의 Top-1이 32.46% → 89.74%로 개선됐습니다. 확인되지 않은 물질은 규칙 실행으로 넘어가지 않도록 했습니다.",
+    "metrics": [
+      [
+        "89.74%",
+        "419건의 물질 후보 Top-1"
+      ],
+      [
+        "+57.28%p",
+        "기준 대비 Top-1 개선"
+      ],
+      [
+        "90.21%",
+        "같은 평가의 Top-3 Recall"
+      ]
+    ],
+    "condition": "2020년 울산 사고 표현 419건 재식별 평가입니다. 새 표현 60건에서는 개선이 없어 현장 정확도나 일반화 성능으로 확대하지 않습니다.",
+    "tech": [
+      "Python",
+      "TF-IDF",
+      "scikit-learn",
+      "Docker",
+      "GitHub Actions",
+      "FastAPI",
+      "Spring Boot",
+      "React",
+      "GCP Cloud Run"
+    ],
+    "github": "https://github.com/chemicheck119-lab",
+    "demo": "https://chemicheck119.site/",
+    "evaluation": "https://github.com/chemicheck119-lab/analysis-engine/blob/main/docs/EVALUATION.md",
+    "contribution": "직접 구현: Resolver·확인 Gate·AI API 계약·GCP 배포. 화면·인증·DB 저장·전체 API 연동은 협업했습니다.",
+    "cardContribution": "별칭·누락 후보를 보완하고, 물질 확인 절차와 API 계약을 구현해 GCP에 배포했습니다.",
+    "cardResult": {
+      "value": "32.46% → 89.74%",
+      "label": "물질 후보 Top-1 일치율",
+      "note": "2020년 울산 사고 표현 419건 재식별 평가"
+    },
+    "logo": "/images/chemicheck-logo.png",
+    "imageLabel": "합성 지령을 사용하는 공개 데모"
+  },
+  {
     "id": "fowoco",
     "name": "FOWOCO",
     "category": "외국인 근로자 행정업무 AI Agent",
-    "period": "2026.06 — 2026.08",
+    "period": "2026.06.29 — 2026.08.21",
     "role": "TPM · 업무 설계 · 서버 통합",
     "headline": "행정 절차를 분석해, 승인과 증빙이 남는 업무형 Agent를 구현했습니다.",
     "description": "E-9 근로자의 재계약·취업활동기간 연장·체류기간 연장 준비를 돕습니다. 인사 담당자가 서류와 진행 상태를 확인하고, 승인한 업무를 이어갈 수 있습니다.",
@@ -88,6 +139,8 @@ export const projects = [
       "PostgreSQL",
       "FastAPI",
       "BERT",
+      "Micrometer",
+      "Prometheus",
       "A.X",
       "AI Agent",
       "Outbox",
@@ -98,11 +151,11 @@ export const projects = [
     "action": "Outbox·멱등 접수·HR 검토를 연결하고, 승인된 최신 정보로 Workflow를 재개했습니다.",
     "result": "문서 제출부터 HWP 생성·승인·증빙까지 연결해 대표 Case의 Task 4/4를 완료했습니다.",
     "image": "/images/fowoco-dashboard.png",
-    "cardContribution": "업무 요구사항과 Server–AI 계약을 정리하고, 문서 검토·승인·업무 재개를 구현했습니다.",
+    "cardContribution": "6개 워크플로우의 필수 정보·차단 조건·완료 증빙을 정리하고, 승인·Outbox·멱등 소비·재시도·감사로그를 구현했습니다.",
     "cardResult": {
-      "value": "2 → 1",
-      "label": "동일 요청의 Intent 분류 횟수",
-      "note": "PLAN의 판단을 재사용해 단계 간 Workflow 선택을 일치시켰습니다."
+      "value": "승인 · 재처리 · 추적",
+      "label": "백엔드 통합과 신뢰성 구현",
+      "note": "통합 QA와 최종 발표 시연 완료 · 실제 현장 시간 절감은 측정하지 않았습니다."
     },
     "logo": "/images/fowoco-logo.png",
     "imageLabel": "업무 관리 대시보드 · 데모"
@@ -113,7 +166,7 @@ export const projects = [
     "imageLabel": "직접 구현한 대시보드 · 개발 화면",
     "name": "AUTA",
     "category": "Figma 기반 UI/UX 자동 검증 서비스",
-    "period": "개발 2025.04 — 2025.10",
+    "period": "2025.03.02 — 2025.12.31",
     "role": "Frontend · React / TypeScript",
     "headline": "디자인 검증을 요청하고 진행 현황을 확인하는 클라이언트를 구현했습니다.",
     "description": "Figma 디자인과 구현된 웹 화면을 비교하는 UI/UX 자동 검증 서비스입니다. 설계 자료를 등록하고 프로젝트별 검증 현황을 확인합니다.",
@@ -129,7 +182,7 @@ export const projects = [
     ],
     "textMetrics": true,
     "condition": "장려상은 팀 수상이며, 관련 기술 특허는 공동발명자로 2026.02.13 출원·심사청구했습니다.",
-    "award": "2025학년도 광운대학교 인공지능융합대학 졸업작품전시회 장려상",
+    "award": "광운대학교 정보융합학부 졸업작품전시회 장려상 · 2025.11.13",
     "tech": [
       "React",
       "TypeScript",
@@ -145,54 +198,6 @@ export const projects = [
       "value": "장려상 · 특허 출원",
       "label": "졸업작품전시회 · 관련 기술",
       "note": "팀 수상 · 특허 공동발명자 (2026.02 출원)"
-    }
-  },
-  {
-    "id": "nextsalary",
-    "image": "/images/nextsalary-demo.png",
-    "imageLabel": "연금 상담 데모 시안",
-    "name": "다음월급",
-    "category": "연금 의사결정 지원 AI Agent",
-    "period": "2026.07 — 2026.09",
-    "role": "1인 주도 개발 · RAG · FastAPI · NCP",
-    "headline": "질문에 필요한 근거를 찾고, 조건에 맞춰 설명하는 연금 Agent를 개발했습니다.",
-    "description": "계좌 종류와 수령 시점에 따라 달라지는 연금 질문에 근거와 확인할 조건을 제시합니다. 검색·조건 검증은 코드가, 검증된 내용의 설명은 LLM이 담당합니다.",
-    "metrics": [
-      [
-        "158",
-        "연금 문서"
-      ],
-      [
-        "31 / 31",
-        "고정 질문의 필요 근거 Top-5 회수"
-      ],
-      [
-        "20 / 20",
-        "조건 변경 질문 구조 검증"
-      ]
-    ],
-    "condition": "고정 질문 31개의 원문 근거 Top-5 검색과 조건 변경 20개의 응답 구조를 평가했습니다. 최종 답변의 정확도와는 구분합니다.",
-    "tech": [
-      "BM25",
-      "BGE-M3",
-      "HyperCLOVA X",
-      "FastAPI",
-      "NCP"
-    ],
-    "flow": [
-      "BM25 + BGE-M3 검색",
-      "조건·계산·출처 검증",
-      "HyperCLOVA X 설명",
-      "FastAPI · NCP"
-    ],
-    "problem": "같은 연금 질문도 계좌·시점·금액이 바뀌면 필요한 근거와 설명이 달라졌습니다.",
-    "action": "BM25·BGE-M3 검색 뒤 조건·계산·출처를 코드로 검증하고, HyperCLOVA X에는 검증된 내용의 설명을 맡겼습니다.",
-    "result": "고정 질문 31/31에서 필요한 근거를 Top-5에 회수했고, 조건 변경 20/20의 설명 구조를 검증했습니다.",
-    "cardContribution": "근거 누락의 원인을 찾아 검색 후보를 보완하고, 검증 로직·API·클라우드 배포를 구현했습니다.",
-    "cardResult": {
-      "value": "31 / 31",
-      "label": "필요 근거를 Top-5에서 검색",
-      "note": "고정 평가 질문 31개 기준 · 근거 검색 평가"
     }
   },
   {
@@ -240,64 +245,65 @@ export const projects = [
     "imageLabel": "모델 연동 시험 · 개발 화면"
   },
   {
-    "id": "chemicheck119",
-    "image": "/images/chemicheck-dashboard.png",
-    "name": "ChemiCheck119",
-    "category": "화학사고 현장 대응 지원 서비스",
-    "period": "2026.07 — 2026.08",
-    "role": "물질 검색 · AI API 계약 · GCP 배포",
-    "headline": "신고 표현의 물질 검색을 개선하고, 확인된 조합만 검토하도록 구현했습니다.",
-    "description": "화학사고 신고문에서 물질 후보를 찾아 대응 검토를 돕는 서비스입니다. 담당자가 두 물질을 확인하면 해당 조합의 공식 대응 규칙을 조회합니다.",
-    "problem": "표준명 중심 검색은 별칭·오탈자를 놓쳤고, 기본 카탈로그 밖 물질은 후보에도 나오지 않았습니다.",
-    "action": "문자 2~5-gram TF-IDF에 현장 별칭을 보강하고, 카탈로그 밖 후보는 정확히 일치할 때만 추가했습니다. 두 CAS의 확인 상태를 API 계약으로 연결했습니다.",
-    "result": "과거 사고 표현 419건의 Top-1이 32.46% → 89.74%로 개선됐습니다. 확인되지 않은 물질은 규칙 실행으로 넘어가지 않도록 했습니다.",
+    "id": "nextsalary",
+    "image": "/images/nextsalary-structure.svg",
+    "imageLabel": "본인 구현 구조 요약",
+    "name": "다음월급",
+    "category": "연금 의사결정 지원 AI Agent",
+    "period": "2026.08.30 재설계 — 2026.09.06 예선 제출",
+    "role": "1인 주도 개발 · RAG · FastAPI · NCP",
+    "headline": "질문에 필요한 근거를 찾고, 조건에 맞춰 설명하는 연금 Agent를 개발했습니다.",
+    "description": "계좌 종류와 수령 시점에 따라 달라지는 연금 질문에 근거와 확인할 조건을 제시합니다. 검색·조건 검증은 코드가, 검증된 내용의 설명은 LLM이 담당합니다.",
     "metrics": [
       [
-        "89.74%",
-        "419건의 물질 후보 Top-1"
+        "31 / 31",
+        "고정 근거 질문의 Recall@5"
       ],
       [
-        "+57.28%p",
-        "기준 대비 Top-1 개선"
-      ],
-      [
-        "90.21%",
-        "같은 평가의 Top-3 Recall"
+        "6 / 6",
+        "조건 변화 3쌍의 Claim 보존"
       ]
     ],
-    "condition": "2020년 울산 사고 표현 419건 재식별 평가입니다. 새 표현 60건에서는 개선이 없어 현장 정확도나 일반화 성능으로 확대하지 않습니다.",
+    "condition": "고정 근거 질문 31건과 제한된 조건 변화 3쌍·6답변의 내부 평가입니다. 평가별 조건을 합치거나 금융 답변 전체의 정확도로 확대하지 않습니다.",
     "tech": [
-      "Python",
-      "TF-IDF",
+      "BM25",
+      "BGE-M3",
+      "HyperCLOVA X",
       "FastAPI",
-      "Spring Boot",
-      "React",
-      "GCP Cloud Run"
+      "NCP"
     ],
-    "github": "https://github.com/chemicheck119-lab",
-    "demo": "https://chemicheck119.site/",
-    "evaluation": "https://github.com/chemicheck119-lab/analysis-engine/blob/main/docs/EVALUATION.md",
-    "contribution": "직접 구현: Resolver·확인 Gate·AI API 계약·GCP 배포. 화면·인증·DB 저장·전체 API 연동은 협업했습니다.",
-    "cardContribution": "별칭·누락 후보를 보완하고, 물질 확인 절차와 API 계약을 구현해 GCP에 배포했습니다.",
+    "flow": [
+      "BM25 + BGE-M3 검색",
+      "조건·계산·출처 검증",
+      "HyperCLOVA X 설명",
+      "FastAPI · NCP"
+    ],
+    "problem": "같은 연금 질문도 계좌·시점·금액이 바뀌면 필요한 근거와 설명이 달라졌습니다.",
+    "action": "BM25·BGE-M3 검색 뒤 조건·계산·출처를 코드로 검증하고, HyperCLOVA X에는 검증된 내용의 설명을 맡겼습니다.",
+    "result": "고정 근거 질문 31건의 Recall@5 100%를 기록했고, 제한된 조건 변화 3쌍·6답변에서 Claim 보존을 확인했습니다.",
+    "cardContribution": "근거 누락의 원인을 찾아 검색 후보를 보완하고, 검증 로직·API·클라우드 배포를 구현했습니다.",
     "cardResult": {
-      "value": "32.46% → 89.74%",
-      "label": "물질 후보 Top-1 일치율",
-      "note": "2020년 울산 사고 표현 419건 재식별 평가"
-    },
-    "logo": "/images/chemicheck-logo.png",
-    "imageLabel": "합성 지령을 사용하는 공개 데모"
+      "value": "31 / 31",
+      "label": "필요 근거를 Top-5에서 검색",
+      "note": "고정 평가 질문 31개 기준 · 근거 검색 평가"
+    }
   }
 ];
 
 export const qualifications = [
   {
-    "date": "2025.11",
+    "date": "2025.11.28",
     "title": "ADsP · 데이터분석 준전문가",
     "detail": "한국데이터산업진흥원"
   },
   {
     "date": "2026.03.30",
     "title": "OPIc English · IM1",
+    "detail": "영어 말하기 평가 · Intermediate Mid 1"
+  },
+  {
+    "date": "2026.10.04",
+    "title": "TOEIC Speaking · IM1",
     "detail": "영어 말하기 평가 · Intermediate Mid 1"
   }
 ];
@@ -315,7 +321,9 @@ export const skills = [
       "BM25",
       "BGE-M3",
       "PyTorch",
-      "ONNX"
+      "ONNX",
+      "TF-IDF",
+      "scikit-learn"
     ],
     "use": "근거 검색, 모델 검증과 추론 API",
     "project": "다음월급 · DeepSogak",
@@ -355,7 +363,10 @@ export const skills = [
       "GCP Cloud Run",
       "Git",
       "GitHub",
-      "CI"
+      "CI",
+      "Docker",
+      "GitHub Actions",
+      "Prometheus"
     ],
     "use": "서비스 배포와 변경 사항 검증",
     "project": "ChemiCheck119 · GCP 배포",
