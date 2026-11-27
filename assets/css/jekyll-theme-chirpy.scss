@@ -1,0 +1,23 @@
+---
+---
+
+@use 'abstracts/variables' with (
+  $theme: '{{ site.theme_mode }}'
+);
+
+@use 'abstracts/breakpoints' as bp;
+
+/* prettier-ignore */
+@use 'main
+{%- if jekyll.environment == 'production' -%}
+  .bundle
+{%- endif -%}
+';
+
+main > nav + #post-list {
+  margin-top: 1.5rem;
+
+  @include bp.lg {
+    margin-top: 2rem;
+  }
+}
