@@ -1,4 +1,7 @@
 ---
-layout: home
-# Index page
+layout: page
+title: About
 ---
+
+{% assign about = site.tabs | where: 'url', '/about/' | first %}
+{{ about.content | markdownify }}

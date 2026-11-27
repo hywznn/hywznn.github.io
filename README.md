@@ -4,6 +4,7 @@ hyunjoon-notes/                  블로그의 글, 사진, 설정이 모두 들�
 │  └─ pages-deploy.yml           수정 내용을 GitHub에 올리면 블로그를 빌드하고 배포하는 설정
 ├─ .jekyll-cache/                다음 빌드를 빠르게 하려고 Jekyll이 임시 데이터를 저장하는 폴더
 ├─ _data/                        연락처와 공유 버튼처럼 여러 화면에서 쓰는 설정을 모은 폴더
+│  ├─ navigation.yml             왼쪽 메뉴의 이름, 순서, 아이콘과 연결 주소를 정하는 파일
 │  ├─ contact.yml                왼쪽 사이드바 맨 아래의 GitHub·RSS 아이콘을 설정하는 파일
 │  └─ share.yml                  각 글 맨 아래에 표시할 SNS 공유 버튼을 설정하는 파일
 ├─ _includes/                    머리글이나 바닥글처럼 여러 페이지에서 함께 쓰는 화면 조각을 바꾸는 곳
@@ -14,6 +15,7 @@ hyunjoon-notes/                  블로그의 글, 사진, 설정이 모두 들�
 ├─ _preview/                     인터넷 없이 브라우저에서 열어볼 수 있도록 따로 저장한 미리보기
 ├─ _site/                        Jekyll이 원본을 읽어서 만든 실제 배포용 HTML·CSS·JS 결과물
 ├─ _tabs/                        왼쪽 사이드바 메뉴에서 열리는 페이지를 모은 폴더
+│  ├─ portfolio.md               PORTFOLIO에 보이는 프로젝트와 관련 링크를 편집하는 파일
 │  ├─ about.md                   ABOUT을 눌렀을 때 보이는 자기소개와 프로젝트 링크를 쓰는 파일
 │  ├─ archives.md                ARCHIVES에서 글을 연도와 날짜순으로 보여주는 페이지
 │  ├─ categories.md              CATEGORIES에서 글을 카테고리별로 모아 보여주는 페이지
@@ -30,7 +32,8 @@ hyunjoon-notes/                  블로그의 글, 사진, 설정이 모두 들�
 ├─ _config.yml                   블로그 이름, 한 줄 소개, 작성자, 언어, 프로필 사진 경로를 정하는 파일
 ├─ Gemfile                       블로그를 만드는 데 필요한 Ruby 패키지와 Chirpy 7.6.0을 지정하는 파일
 ├─ Gemfile.lock                  설치한 패키지들의 정확한 버전을 기록해 다른 환경에서도 맞춰 주는 파일
-├─ index.html                    블로그 첫 화면에 Chirpy의 홈 레이아웃과 최신 글 목록을 불러오는 파일
+├─ blog/index.html               BLOG에서 최신 글을 카드 목록으로 보여주는 파일
+├─ index.html                    첫 화면에 about.md의 소개를 불러오는 파일
 ├─ LICENSE                       스타터 코드에 적용되는 MIT 라이선스와 저작권 표시가 담긴 파일
 └─ README.md                     현준님이 블로그를 수정하고 실행하는 방법을 정리한 사용 설명서
 ```

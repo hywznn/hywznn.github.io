@@ -1,0 +1,12 @@
+- title: About
+  url: /
+  icon: fas fa-info-circle
+- title: Blog
+  url: /blog/
+  icon: fas fa-pen
+- title: Portfolio
+  url: /portfolio/
+  icon: fas fa-briefcase
+- title: Archives
+  url: /archives/
+  icon: fas fa-archive
