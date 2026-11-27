@@ -1,8 +1,12 @@
 ---
 ---
 
+$site-font: 'Pretendard', system-ui, sans-serif;
+
 @use 'abstracts/variables' with (
-  $theme: '{{ site.theme_mode }}'
+  $theme: '{{ site.theme_mode }}',
+  $font-family-base: $site-font,
+  $font-family-heading: $site-font
 );
 
 @use 'abstracts/breakpoints' as bp;
@@ -13,6 +17,34 @@
   .bundle
 {%- endif -%}
 ';
+
+@font-face {
+  font-family: 'Pretendard';
+  src: url('../fonts/pretendard/PretendardVariable.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+:root {
+  --bs-font-sans-serif: #{$site-font};
+}
+
+#topbar-title,
+#archives .date.day,
+.tag span,
+.pagination,
+kbd,
+#glightbox-body .gslide-title,
+#glightbox-body .gslide-desc {
+  font-family: $site-font;
+}
+
+main[data-layout='page'] article > .content,
+main[data-layout='post'] article > .content,
+.post-preview p {
+  font-family: 'Apple SD Gothic Neo', 'Malgun Gothic', 'Noto Sans CJK KR', system-ui, sans-serif;
+}
 
 main > nav + #post-list {
   margin-top: 1.5rem;
