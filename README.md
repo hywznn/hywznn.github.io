@@ -1,5 +1,3 @@
-블로그 폴더에서 `npm start`를 실행한 뒤 [로컬 미리보기](http://127.0.0.1:4000/)를 여세요. 종료는 **Control+C**입니다. 다른 컴퓨터에서 처음 실행할 때는 Node.js와 Ruby 3.4, Bundler가 필요합니다.
-
 ```
 hyunjoon-notes/                  블로그의 글, 사진, 설정이 모두 들어 있는 원본 폴더
 ├─ .github/workflows/            GitHub에서 자동으로 실행할 작업을 모아 두는 폴더

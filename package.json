@@ -1,7 +1,0 @@
-{
-  "name": "hyunjoon-notes",
-  "private": true,
-  "scripts": {
-    "start": "sh _scripts/preview.sh"
-  }
-}
