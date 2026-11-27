@@ -5,4 +5,5 @@ _preview/
 .sass-cache/
 .bundle/
 vendor/
+node_modules/
 .DS_Store
